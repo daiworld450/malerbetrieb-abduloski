@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daiworld450.github.io/malerbetrieb-abduloski/sitemap.xml
