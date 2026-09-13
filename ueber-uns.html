@@ -57,11 +57,12 @@
       <ul>
         <li><a href="index.html">Startseite</a></li>
         <li class="has-dropdown">
-          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="leistungen-dropdown">
-            Leistungen
+          <a href="leistungen/index.html" class="dropdown-toggle">Leistungen</a>
+          <button type="button" class="dropdown-caret" aria-expanded="false" aria-controls="leistungen-dropdown" aria-label="Leistungen-Unterseiten anzeigen">
             <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <ul class="dropdown" id="leistungen-dropdown">
+              <li><a href="leistungen/index.html">Alle Leistungen im Überblick</a></li>
               <li><a href="leistungen/fassadenanstrich-fassadensanierung-muelheim.html">Fassadenanstrich & Fassadensanierung Mülheim</a></li>
               <li><a href="leistungen/waermedaemmung-wdvs-muelheim.html">Wärmedämmung / WDVS Mülheim</a></li>
               <li><a href="leistungen/fassadenanstrich-essen.html">Fassadenanstrich Essen</a></li>
@@ -84,44 +85,99 @@
 </header>
 <main id="main">
 
-<section class="page-hero page-hero--narrow">
-  <div class="container">
-    <p class="kicker">Über uns</p>
-    <h1>Sevdan Abduloski Malerbetrieb</h1>
-    <p class="hero-lead">Malerbetrieb in Mülheim an der Ruhr, Stadtteil Heißen.</p>
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Startseite</a></li><li aria-current="page">Über uns</li></ol></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://daiworld450.github.io/malerbetrieb-abduloski/index.html"},{"@type":"ListItem","position":2,"name":"Über uns"}]}</script>
+
+<section class="page-hero">
+  <div class="container page-hero-grid">
+    <div>
+      <p class="kicker">Über uns</p>
+      <h1>Handwerk mit Haltung.</h1>
+      <p class="hero-lead">Sevdan Abduloski Malerbetrieb – Maler- und Lackiererarbeiten mit Sitz in
+      Mülheim an der Ruhr, Stadtteil Heißen.</p>
+    </div>
+    <div><!-- Foto folgt - spaeter ersetzen durch:
+     <img src="/bilder/…" alt="Inhaber Sevdan Abduloski bei der Arbeit" width="800" height="1000" loading="eager"> -->
+<div class="img-placeholder" style="aspect-ratio:4 / 5;" role="img" aria-label="Inhaber Sevdan Abduloski bei der Arbeit">
+  <span class="img-placeholder__text">Foto folgt</span>
+</div></div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container two-col">
-    <div>
-      <!-- Foto folgt - spaeter ersetzen durch:
-     <img src="/bilder/…" alt="Inhaber Sevdan Abduloski bei der Arbeit" width="800" height="600" loading="lazy"> -->
-<div class="img-placeholder" style="aspect-ratio:4 / 3;" role="img" aria-label="Inhaber Sevdan Abduloski bei der Arbeit">
-  <span class="img-placeholder__text">Foto folgt</span>
-</div>
-    </div>
-    <div>
-      <h2>Der Betrieb</h2>
-      <p>Sevdan Abduloski Malerbetrieb ist ein Einzelunternehmen mit Sitz in Mülheim an der Ruhr (Heißen). Ausgeführt
-      werden Maler- und Lackiererarbeiten rund um Fassade und Innenraum – von der Beratung über die
-      Vorbereitung bis zur fertigen Ausführung.</p>
-      <p>Anfragen werden persönlich beantwortet, ein Angebot entsteht nach einem Vor-Ort-Termin oder
-      anhand von Fotos.</p>
-    </div>
+  <div class="container" style="max-width: 800px;">
+    <h2>Der Betrieb</h2>
+    <p>Sevdan Abduloski Malerbetrieb ist ein Einzelunternehmen mit Sitz in Mülheim an der Ruhr (Heißen).
+    Handwerk bedeutet hier vor allem: genau hinsehen, sauber arbeiten und für das geradestehen, was
+    zugesagt wird. Ausgeführt werden Maler- und Lackiererarbeiten rund um Fassade und Innenraum – von
+    der ersten Einschätzung über die Vorbereitung bis zur fertigen Übergabe.</p>
+    <p>Anfragen werden persönlich beantwortet, ein Angebot entsteht nach einem Vor-Ort-Termin oder
+    anhand von Fotos.</p>
+    <p class="placeholder-note">Ein persönliches Wort vom Inhaber folgt in Kürze.</p>
   </div>
 </section>
 
 <section class="section section-alt">
   <div class="container">
-    <blockquote class="quote-block">
-      <p>[Zitat vom Inhaber folgt]</p>
-      <cite>Sevdan Abduloski</cite>
-    </blockquote>
+    <p class="kicker">Werte</p>
+    <h2>Worauf es ankommt</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Zuverlässigkeit</h3>
+        <p>Zusagen gelten – bei Terminen genauso wie beim vereinbarten Leistungsumfang.</p>
+      </div>
+      <div class="value-card">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6 6.2.6-4.6 4.2 1.3 6.1L12 16.9 6.5 19.5l1.3-6.1L3.2 9.2l6.2-.6z"/></svg>
+        <h3>Qualität</h3>
+        <p>Fachgerechte Vorbereitung und sorgfältige Ausführung statt schneller Kompromisse.</p>
+      </div>
+      <div class="value-card">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="9" r="0.8" fill="currentColor"/><circle cx="15" cy="9" r="0.8" fill="currentColor"/></svg>
+        <h3>Kundenzufriedenheit</h3>
+        <p>Persönliche Ansprache vor, während und nach der Ausführung.</p>
+      </div>
+      <div class="value-card">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <h3>Regionale Verbundenheit</h3>
+        <p>Zuhause in Mülheim-Heißen, mit kurzen Wegen nach Essen und Oberhausen.</p>
+      </div>
+      <div class="value-card">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg>
+        <h3>Sauberkeit</h3>
+        <p>Schutz von Möbeln und Böden, ordentliche Baustelle, saubere Übergabe.</p>
+      </div>
+      <div class="value-card">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <h3>Termintreue</h3>
+        <p>Abgesprochene Termine werden eingehalten – Verzögerungen werden rechtzeitig kommuniziert.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section">
+  <div class="container">
+    <p class="kicker">Einblick</p>
+    <h2>Bilder bei der Arbeit</h2>
+    <div class="gallery-grid">
+      <!-- Foto folgt - spaeter ersetzen durch:
+     <img src="/bilder/…" alt="Sevdan Abduloski Malerbetrieb bei der Arbeit, Bild 1" width="600" height="450" loading="lazy"> -->
+<div class="img-placeholder" role="img" aria-label="Foto bei der Arbeit folgt"><span class="img-placeholder__text">Foto folgt</span></div>
+      <!-- Foto folgt - spaeter ersetzen durch:
+     <img src="/bilder/…" alt="Sevdan Abduloski Malerbetrieb bei der Arbeit, Bild 2" width="600" height="450" loading="lazy"> -->
+<div class="img-placeholder" role="img" aria-label="Foto bei der Arbeit folgt"><span class="img-placeholder__text">Foto folgt</span></div>
+      <!-- Foto folgt - spaeter ersetzen durch:
+     <img src="/bilder/…" alt="Sevdan Abduloski Malerbetrieb bei der Arbeit, Bild 3" width="600" height="450" loading="lazy"> -->
+<div class="img-placeholder" role="img" aria-label="Foto bei der Arbeit folgt"><span class="img-placeholder__text">Foto folgt</span></div>
+      <!-- Foto folgt - spaeter ersetzen durch:
+     <img src="/bilder/…" alt="Sevdan Abduloski Malerbetrieb bei der Arbeit, Bild 4" width="600" height="450" loading="lazy"> -->
+<div class="img-placeholder" role="img" aria-label="Foto bei der Arbeit folgt"><span class="img-placeholder__text">Foto folgt</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
   <div class="container">
     <h2>Kontaktdaten</h2>
     <ul class="contact-facts">
@@ -135,11 +191,11 @@
 <section class="section cta-section">
   <div class="container cta-box">
     <p class="kicker">Kontakt</p>
-    <h2>Kontakt aufnehmen</h2>
+    <h2>Projekt mit uns besprechen</h2>
     <p>Fragen zu einem Vorhaben? Kurz anrufen oder schreiben.</p>
     <div class="btn-row">
-      <a href="tel:+4915731464675" class="btn btn-accent"><svg class="icon-phone" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (01573) 1464675</a>
-      <a href="kontakt.html" class="btn btn-outline-light">Nachricht schreiben</a>
+      <a href="kontakt.html" class="btn btn-accent btn-lg">Projekt mit uns besprechen</a>
+      <a href="tel:+4915731464675" class="btn btn-outline-light btn-lg"><svg class="icon-phone" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (01573) 1464675</a>
     </div>
   </div>
 </section>
@@ -156,6 +212,7 @@
     <div class="footer-col">
       <h2>Leistungen</h2>
       <ul>
+        <li><a href="leistungen/index.html">Alle Leistungen im Überblick</a></li>
         <li><a href="leistungen/fassadenanstrich-fassadensanierung-muelheim.html">Fassadenanstrich & Fassadensanierung Mülheim</a></li>
         <li><a href="leistungen/waermedaemmung-wdvs-muelheim.html">Wärmedämmung / WDVS Mülheim</a></li>
         <li><a href="leistungen/fassadenanstrich-essen.html">Fassadenanstrich Essen</a></li>
@@ -173,6 +230,7 @@
       <h2>Unternehmen</h2>
       <ul>
         <li><a href="index.html">Startseite</a></li>
+        <li><a href="referenzen.html">Referenzen</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="impressum.html">Impressum</a></li>
