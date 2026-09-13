@@ -7,6 +7,8 @@
  *   2) Sticky-Header-Schatten beim Scrollen
  *   3) BeforeAfterSlider – wiederverwendbare Komponente, unterstützt
  *      mehrere Instanzen pro Seite (siehe DESIGN-SYSTEM.md für die API)
+ *   4) Kategorie-Auswahl im Kontaktformular (Welle B)
+ *   5) Filter-Tabs auf referenzen.html (Welle B)
  */
 (function () {
   "use strict";
@@ -22,16 +24,18 @@
     });
   }
 
-  // Leistungen-Dropdown: Klick-Umschaltung fuer Touch/Mobile,
-  // Desktop nutzt zusaetzlich :hover per CSS.
-  var dropdownToggle = document.querySelector(".dropdown-toggle");
-  var dropdownParent = dropdownToggle ? dropdownToggle.closest(".has-dropdown") : null;
+  // Leistungen-Dropdown: ".dropdown-toggle" ist seit Welle B ein echter Link
+  // auf leistungen/index.html. Das Auf-/Zuklappen des Untermenüs übernimmt
+  // der separate Chevron-Button ".dropdown-caret" (Klick-Umschaltung fuer
+  // Touch/Mobile, Desktop nutzt zusaetzlich :hover per CSS).
+  var dropdownCaret = document.querySelector(".dropdown-caret");
+  var dropdownParent = dropdownCaret ? dropdownCaret.closest(".has-dropdown") : null;
 
-  if (dropdownToggle && dropdownParent) {
-    dropdownToggle.addEventListener("click", function (event) {
+  if (dropdownCaret && dropdownParent) {
+    dropdownCaret.addEventListener("click", function (event) {
       event.preventDefault();
       var isOpen = dropdownParent.classList.toggle("is-open");
-      dropdownToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      dropdownCaret.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
   }
 
@@ -59,7 +63,7 @@
   document.addEventListener("click", function (event) {
     if (dropdownParent && dropdownParent.classList.contains("is-open") && !dropdownParent.contains(event.target)) {
       dropdownParent.classList.remove("is-open");
-      dropdownToggle.setAttribute("aria-expanded", "false");
+      dropdownCaret.setAttribute("aria-expanded", "false");
     }
   });
 
@@ -154,4 +158,66 @@
   }
 
   document.querySelectorAll("[data-before-after]").forEach(initBeforeAfterSlider);
+
+  /* ---------- 4) Kategorie-Auswahl im Kontaktformular (Welle B) ----------
+   * Markup-Vertrag:
+   * <div class="toggle-group" data-category-toggle data-target="#kategorie-feld">
+   *   <button type="button" class="toggle-btn" data-value="Innenraum">Innenraum</button>
+   *   … weitere Buttons …
+   * </div>
+   * <input type="hidden" id="kategorie-feld" name="Kategorie" value="">
+   * Klick auf einen Button setzt is-active (nur einer aktiv) und schreibt
+   * data-value in das per data-target referenzierte Formularfeld.
+   */
+  function initCategoryToggle(root) {
+    var targetSelector = root.getAttribute("data-target");
+    var targetField = targetSelector ? document.querySelector(targetSelector) : null;
+    var buttons = root.querySelectorAll(".toggle-btn");
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("is-active"); });
+        button.classList.add("is-active");
+        if (targetField) targetField.value = button.getAttribute("data-value") || "";
+      });
+    });
+  }
+
+  document.querySelectorAll("[data-category-toggle]").forEach(initCategoryToggle);
+
+  /* ---------- 5) Filter-Tabs auf referenzen.html (Welle B) ----------
+   * Markup-Vertrag:
+   * <div class="toggle-group" data-filter-tabs data-target="[data-project-grid]">
+   *   <button type="button" class="toggle-btn is-active" data-filter="alle">Alle</button>
+   *   <button type="button" class="toggle-btn" data-filter="innenraum">Innenraum</button>
+   *   … weitere Buttons …
+   * </div>
+   * <div class="project-grid" data-project-grid>
+   *   <a class="project-card" data-category="innenraum">…</a>
+   *   …
+   * </div>
+   * Klick auf einen Tab blendet Karten aus, deren data-category nicht passt
+   * ("alle" zeigt alle Karten).
+   */
+  function initFilterTabs(root) {
+    var targetSelector = root.getAttribute("data-target");
+    var grid = targetSelector ? document.querySelector(targetSelector) : null;
+    if (!grid) return;
+    var buttons = root.querySelectorAll(".toggle-btn");
+    var cards = grid.querySelectorAll("[data-category]");
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("is-active"); });
+        button.classList.add("is-active");
+        var filter = button.getAttribute("data-filter");
+        cards.forEach(function (card) {
+          var show = filter === "alle" || card.getAttribute("data-category") === filter;
+          card.hidden = !show;
+        });
+      });
+    });
+  }
+
+  document.querySelectorAll("[data-filter-tabs]").forEach(initFilterTabs);
 })();

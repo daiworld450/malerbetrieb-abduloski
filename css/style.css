@@ -48,6 +48,14 @@
   --shadow-md: 0 16px 40px rgba(16, 17, 18, 0.12);
   --header-height: 84px;
   --mobile-bar-height: 68px;
+
+  /* ---- Swatch-Töne (Welle B, rein dekorativ – siehe DESIGN-SYSTEM.md) ---- */
+  --swatch-1: #EDE7DB;
+  --swatch-2: #C9CBB7;
+  --swatch-3: #AEBAC0;
+  --swatch-4: #D9C3AE;
+  --swatch-5: #8E8577;
+  --swatch-6: #3F4A46;
 }
 
 /* -------------------- Reset / Base -------------------- */
@@ -188,7 +196,7 @@ main { display: block; }
 .main-nav > ul > li > a:hover,
 .main-nav > ul > li > a.is-active { color: var(--color-white); border-color: var(--color-accent); }
 
-.has-dropdown { position: relative; }
+.has-dropdown { position: relative; display: flex; align-items: center; }
 .dropdown-toggle {
   display: inline-flex;
   align-items: center;
@@ -205,6 +213,23 @@ main { display: block; }
 }
 .dropdown-toggle:hover,
 .dropdown-toggle.is-active { color: var(--color-white); border-color: var(--color-accent); }
+/* Welle B: "Leistungen" ist jetzt ein echter Link auf leistungen/index.html
+   (.dropdown-toggle). Das Auf-/Zuklappen des Untermenüs übernimmt ein
+   separater Chevron-Button (.dropdown-caret) daneben. */
+.dropdown-caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-on-ink);
+  cursor: pointer;
+  padding: 0.4rem 0.3rem;
+}
+.dropdown-caret:hover { color: var(--color-white); }
+.dropdown-caret svg { transition: transform 0.15s ease; }
+.dropdown-caret[aria-expanded="true"] svg,
+.has-dropdown.is-open .dropdown-caret svg { transform: rotate(180deg); }
 .dropdown {
   position: absolute;
   top: calc(100% + 14px);
@@ -601,7 +626,7 @@ main { display: block; }
   color: var(--color-text-muted);
 }
 .breadcrumb .container { max-width: var(--container-width); margin: 0 auto; padding: var(--space-2) var(--space-3) 0; }
-.breadcrumb ol { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.breadcrumb ol { display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none; margin: 0; }
 .breadcrumb li:not(:last-child)::after { content: "/"; margin-left: 0.35rem; color: var(--color-border); }
 .breadcrumb a { color: var(--color-text-muted); }
 .breadcrumb a:hover { color: var(--color-ink); }
@@ -720,6 +745,128 @@ main { display: block; }
 }
 .contact-form button { margin-top: var(--space-2); justify-self: start; }
 
+/* -------------------- Welle B: neue Komponenten (siehe DESIGN-SYSTEM.md) -------------------- */
+
+/* PlaceholderNote – ersetzt eckige-Klammer-Platzhalter im Fließtext */
+.placeholder-note {
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+.placeholder-note--on-ink { color: var(--color-on-ink-muted); }
+
+/* ValueCard (Werte-Grid, z.B. ueber-uns.html) */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+.value-card {
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+.value-card svg { color: var(--color-accent); margin-bottom: var(--space-2); }
+.value-card h3 { margin-bottom: 0.3rem; }
+.value-card p { color: var(--color-text-muted); margin: 0; font-size: 0.95rem; }
+
+/* Foto-Platzhalter-Galerie (z.B. "Bilder bei der Arbeit") */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.gallery-grid .img-placeholder { aspect-ratio: 4 / 3; }
+
+/* Cross-Link-Modul (Teaser zu einer weiteren Leistungsseite) */
+.cross-link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  margin-top: var(--space-5);
+}
+.cross-link__body { max-width: 62ch; }
+.cross-link__body .kicker { margin-bottom: 0.3rem; }
+.cross-link__body h3 { margin-bottom: 0.35rem; }
+.cross-link__body p { color: var(--color-text-muted); margin: 0; }
+.cross-link .btn { flex-shrink: 0; }
+
+/* Toggle-Gruppe – Kategorie-Auswahl (kontakt.html) und Filter-Tabs (referenzen.html) */
+.toggle-group { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: var(--space-2) 0 var(--space-3); }
+.toggle-btn {
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.toggle-btn:hover { border-color: var(--color-ink); }
+.toggle-btn.is-active { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-white); }
+
+/* ContactCard (drei große Kontaktkarten, kontakt.html) */
+.contact-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  color: inherit;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.contact-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); color: inherit; }
+.contact-card svg { color: var(--color-accent); }
+.contact-card h3 { margin: 0; }
+.contact-card p { color: var(--color-text-muted); margin: 0; font-size: 0.95rem; }
+
+/* Factor-Grid – "Was beeinflusst die Kosten?" (Karten nutzen .region-card) */
+.factor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* Farbton-Swatches (innenanstrich-tapezieren-muelheim.html) – rein dekorative
+   Muster-Töne, keine echten Produktfarben, siehe --swatch-* in :root. */
+.swatch-grid { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-4); }
+.swatch { text-align: center; }
+.swatch__chip {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  margin: 0 auto 0.5rem;
+}
+.swatch__label { font-size: 0.82rem; font-weight: 600; color: var(--color-text-muted); }
+
+/* WDVS-Aufbau-Diagramm (eigenes Inline-SVG, keine Fotos nötig) */
+.wdvs-diagram { margin: var(--space-4) 0; }
+.wdvs-diagram svg { width: 100%; height: auto; display: block; }
+
 /* -------------------- Footer -------------------- */
 .site-footer { background: var(--color-black); color: var(--color-on-ink-muted); padding: var(--space-6) 0 var(--space-3); }
 .footer-inner {
@@ -755,6 +902,9 @@ main { display: block; }
   .service-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .region-grid { grid-template-columns: 1fr 1fr; }
+  .value-grid { grid-template-columns: 1fr 1fr; }
+  .factor-grid { grid-template-columns: 1fr 1fr; }
+  .contact-card-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 900px) {
@@ -764,6 +914,8 @@ main { display: block; }
   .owner-block { padding: var(--space-4); }
   .spoke-grid { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
+  .value-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -786,7 +938,10 @@ main { display: block; }
   }
   .main-nav > ul > li { border-bottom: 1px solid var(--color-border-on-ink); }
   .main-nav > ul > li > a { display: block; padding: 1rem 0.25rem; }
-  .dropdown-toggle { width: 100%; justify-content: space-between; padding: 1rem 0.25rem; }
+  .has-dropdown { flex-wrap: wrap; }
+  .dropdown-toggle { flex: 1 1 auto; padding: 1rem 0.25rem; }
+  .dropdown-caret { flex: 0 0 auto; padding: 1rem 0.5rem; }
+  .dropdown { flex-basis: 100%; }
   .dropdown {
     position: static;
     box-shadow: none;
@@ -815,4 +970,7 @@ main { display: block; }
   .btn-row { flex-direction: column; align-items: stretch; }
   .btn-row .btn { justify-content: center; }
   .process-steps { grid-template-columns: 1fr; }
+  .factor-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .cross-link { flex-direction: column; align-items: flex-start; }
 }

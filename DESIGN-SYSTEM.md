@@ -1,10 +1,13 @@
 # Design System – Sevdan Abduloski Malerbetrieb
 
-Diese Datei dokumentiert das Redesign-Fundament aus **Welle A** (2026-09-13).
-Sie soll reichen, um in **Welle B** (restliche Unterseiten: `referenzen.html`,
-Überarbeitung der 7 Leistungsseiten, `ueber-uns.html`, `kontakt.html`,
-`impressum.html`, `datenschutz.html`, `404.html`) konsistent weiterzubauen,
-**ohne Rückfrage**.
+Diese Datei dokumentiert das Redesign-Fundament aus **Welle A** (2026-09-13),
+ergänzt um die Komponenten und Muster aus **Welle B** (2026-09-14 – restliche
+Unterseiten fertiggestellt: `leistungen/index.html`, `referenzen.html`, alle
+7 Leistungsseiten inhaltlich neu, `ueber-uns.html`, `kontakt.html`,
+`impressum.html`, `datenschutz.html`, `404.html`). Abschnitt 10 am Ende
+dieser Datei fasst die Welle-B-Ergänzungen zusammen; alle vorherigen
+Abschnitte gelten unverändert weiter, **außer wo Abschnitt 10 sie explizit
+ersetzt** (Nav-Struktur, siehe dort).
 
 Kein Build-Step, kein npm, kein Framework – reines HTML/CSS/Vanilla-JS, wie
 im gesamten Repo üblich. Alles lebt in `css/style.css` und `js/main.js`.
@@ -383,3 +386,182 @@ identisch). **Das ist erwartet** und Aufgabe von Welle B, inkl.:
 4. Keine neuen Farben/Fonts/Bibliotheken ohne Ergänzung dieser Datei.
 5. Bild-Slots als `.img-placeholder` mit Alt-Text-Kommentar anlegen, bis
    echte Fotos vorliegen.
+
+## 10. Welle B – Ergänzungen (2026-09-14)
+
+### 10.1 Nav-Struktur geändert: "Leistungen" ist jetzt ein echter Link
+
+Der Hauptnavigationspunkt "Leistungen" zeigt jetzt auf die neue
+`leistungen/index.html` (Übersichtsseite), das Auf-/Zuklappen des
+Untermenüs übernimmt ein separater Chevron-Button daneben. Ersetzt die in
+Abschnitt 6 (Header/Nav) gezeigte alte `<button class="dropdown-toggle">`.
+Neue Struktur (root-Seiten-Variante, in `leistungen/` mit `../`-Präfix):
+
+```html
+<li class="has-dropdown">
+  <a href="leistungen/index.html" class="dropdown-toggle">Leistungen</a>
+  <button type="button" class="dropdown-caret" aria-expanded="false" aria-controls="leistungen-dropdown" aria-label="Leistungen-Unterseiten anzeigen">
+    <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <ul class="dropdown" id="leistungen-dropdown">
+      <li><a href="leistungen/index.html">Alle Leistungen im Überblick</a></li>
+      <li><a href="leistungen/fassadenanstrich-fassadensanierung-muelheim.html">Fassadenanstrich & Fassadensanierung Mülheim</a></li>
+      … restliche 6 Leistungslinks unverändert …
+  </ul>
+</li>
+```
+
+- `.dropdown-toggle` ist die `<a>` (Klick navigiert direkt zur
+  Übersichtsseite, kein `preventDefault` mehr).
+- `.dropdown-caret` ist der separate Button, der das Untermenü togglet
+  (`js/main.js` hört jetzt auf `.dropdown-caret`, nicht mehr auf
+  `.dropdown-toggle`). Desktop-Hover über `.has-dropdown` öffnet das Menü
+  weiterhin zusätzlich per CSS, unverändert.
+- `is-active` wird weiterhin auf `.dropdown-toggle` gesetzt, wenn man sich
+  irgendwo unterhalb von `/leistungen/` befindet (inkl. der neuen
+  Übersichtsseite selbst).
+- Footer-Spalte "Leistungen" bekommt als erstes Element zusätzlich
+  `<li><a href="leistungen/index.html">Alle Leistungen im Überblick</a></li>`,
+  Footer-Spalte "Unternehmen" bekommt zusätzlich einen `Referenzen`-Link
+  vor "Über uns" – auf **allen** Seiten konsistent nachgezogen.
+
+### 10.2 Breadcrumbs jetzt auf allen Unterseiten
+
+Nicht mehr nur auf den Leistungsseiten: `ueber-uns.html`, `kontakt.html`,
+`referenzen.html`, `impressum.html`, `datenschutz.html` haben jetzt ebenfalls
+eine `.breadcrumb`-Zeile ("Startseite > Seitenname") direkt nach
+`<main id="main">` plus passendes `BreadcrumbList`-JSON-LD danach. Lokale
+Leistungs-Spoke-Seiten (Essen/Oberhausen) nutzen einen 4-stufigen Breadcrumb
+(Startseite > Leistungen > zugehörige Pillar-Seite > aktuelle Seite).
+`404.html` bewusst ohne Breadcrumb (keine reguläre, indexierte Inhaltsseite).
+
+### 10.3 Neue Komponenten (`css/style.css`, Abschnitt "Welle B: neue Komponenten")
+
+**PlaceholderNote** – ersetzt jede Form von eckigen-Klammer-Platzhaltertext
+im sichtbaren Fließtext. Kein Blockquote-Look, kein "fake" Zitat-Rahmen.
+
+```html
+<p class="placeholder-note">Ein persönliches Wort vom Inhaber folgt in Kürze.</p>
+<!-- Auf dunklem Grund (z.B. im Owner-Block): -->
+<p class="placeholder-note placeholder-note--on-ink">…</p>
+```
+
+**ValueCard** (`.value-grid`/`.value-card`) – Werte-Grid mit Icon, z.B.
+`ueber-uns.html`. 3 Spalten Desktop → 2 → 1.
+
+```html
+<div class="value-grid">
+  <div class="value-card">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">…</svg>
+    <h3>Titel</h3>
+    <p>Beschreibung.</p>
+  </div>
+  …
+</div>
+```
+
+**Foto-Platzhalter-Galerie** (`.gallery-grid`) – reine `.img-placeholder`-Grid
+ohne Kartenrahmen, z.B. "Bilder bei der Arbeit" auf `ueber-uns.html`. 4
+Spalten Desktop → 2 → 2 (480px).
+
+**Cross-Link-Modul** (`.cross-link`) – Teaser-Box mit Text + CTA-Button zu
+einer weiterführenden Leistungsseite.
+
+```html
+<div class="cross-link">
+  <div class="cross-link__body">
+    <p class="kicker">Passend dazu</p>
+    <h3>Titel</h3>
+    <p>Ein bis zwei Sätze Teaser-Text.</p>
+  </div>
+  <a href="ziel.html" class="btn btn-outline">CTA-Text</a>
+</div>
+```
+
+**Toggle-Gruppe** (`.toggle-group`/`.toggle-btn`) – wiederverwendet für zwei
+Zwecke: Kategorie-Auswahl im Kontaktformular (`kontakt.html`) und Filter-Tabs
+auf `referenzen.html`. Aktiver Zustand: `.toggle-btn.is-active`. JS-Verträge
+siehe 10.4.
+
+**ContactCard** (`.contact-card-grid`/`.contact-card`) – drei große
+Kontaktkarten (Telefon/E-Mail/WhatsApp) oben auf `kontakt.html`. 3 Spalten
+Desktop → 2 (1024px, faktisch 1 da 3 Karten) → 1 (900px).
+
+**Factor-Grid** (`.factor-grid`) – 4-spaltiges Karten-Grid für z.B. "Was
+beeinflusst die Kosten?" oder "Kompetenzbereiche"; die Karten selbst nutzen
+die bereits vorhandene `.region-card`-Klasse (kein neuer Kartenstil nötig).
+
+```html
+<div class="factor-grid">
+  <div class="region-card"><h3>Titel</h3><p>Text.</p></div>
+  …
+</div>
+```
+
+**Swatch-Grid** (`.swatch-grid`/`.swatch`, `.swatch__chip`, `.swatch__label`)
+– rein dekorative Farbmuster-Kacheln (z.B. "Farben. Materialien.
+Möglichkeiten." auf der Innenraum-Seite). Nutzt sechs neue, rein dekorative
+Zwischentöne `--swatch-1` … `--swatch-6` in `:root` (siehe 10.5) – **keine**
+echten Produkt-/Herstellerfarben, nur generische Farbfamilien-Namen als
+Label.
+
+```html
+<div class="swatch-grid">
+  <div class="swatch">
+    <div class="swatch__chip" style="background: var(--swatch-1);"></div>
+    <p class="swatch__label">Sandstein</p>
+  </div>
+  …
+</div>
+```
+
+**WDVS-Diagramm** (`.wdvs-diagram`) – Container-Klasse für ein eigenes,
+beschriftetes Inline-SVG (Schichtaufbau), siehe
+`leistungen/waermedaemmung-wdvs-muelheim.html` für das volle Beispiel
+(nummerierte Schichten + Legende, `role="img"` mit `<title>`/`<desc>` für
+Screenreader). Kein Foto nötig, rein grafisch.
+
+### 10.4 Neue JS-Bausteine (`js/main.js`)
+
+Zwei weitere benannte Init-Funktionen nach demselben Muster wie
+`initBeforeAfterSlider`:
+
+- `initCategoryToggle(root)` – auf `[data-category-toggle]`. Markup:
+  `<div class="toggle-group" data-category-toggle data-target="#feld-id">`
+  mit `.toggle-btn`-Kindern, die je ein `data-value` tragen. Klick markiert
+  genau einen Button als `.is-active` und schreibt `data-value` in das per
+  `data-target` referenzierte (meist versteckte) Formularfeld. Eingesetzt im
+  Kontaktformular für die Projektkategorie (Innenraum/Fassade/WDVS).
+- `initFilterTabs(root)` – auf `[data-filter-tabs]`. Markup:
+  `<div class="toggle-group" data-filter-tabs data-target="[data-project-grid]">`
+  mit `.toggle-btn`-Kindern, die je ein `data-filter` tragen (`"alle"` zeigt
+  alle Karten). Die Zielkarten im referenzierten Grid tragen `data-category`;
+  Klick blendet nicht passende Karten per `hidden`-Attribut aus. Eingesetzt
+  auf `referenzen.html`.
+
+### 10.5 Neue Farb-Tokens (nur für Swatches, rein dekorativ)
+
+| Variable | Wert | Verwendung |
+|---|---|---|
+| `--swatch-1` | `#EDE7DB` | Farbmuster "Sandstein" |
+| `--swatch-2` | `#C9CBB7` | Farbmuster "Salbeigrün" |
+| `--swatch-3` | `#AEBAC0` | Farbmuster "Taubenblau" |
+| `--swatch-4` | `#D9C3AE` | Farbmuster "Terrakotta" (auch im WDVS-Diagramm: Oberputz) |
+| `--swatch-5` | `#8E8577` | WDVS-Diagramm: Kleber |
+| `--swatch-6` | `#3F4A46` | Farbmuster "Anthrazitgrün" / WDVS-Diagramm: Armierungsgewebe |
+
+Diese Tokens sind bewusst von den Kernfarben (Abschnitt 1) getrennt – sie
+sind bewusst NICHT UI-Farben (keine Buttons/Links/Status), sondern rein
+dekorative Muster-/Diagrammfarben. Neue Verwendungszwecke hier ergänzen statt
+neue Hex-Werte direkt im Markup zu verwenden.
+
+### 10.6 Status: Welle A "bewusst nicht angefasst"-Liste (Abschnitt 8) ist abgearbeitet
+
+Alle in Abschnitt 8 aufgeführten Punkte sind mit Welle B umgesetzt:
+`referenzen.html` existiert, `.page-hero--image-bg` ist auf den beiden
+Fassaden-/WDVS-Leistungsseiten im Einsatz, `.project-grid`/`.project-card`
+läuft auf `referenzen.html` und im Innenraum-Leistungspillar,
+`.faq-accordion` ist mit echten Fragen/Antworten auf allen 7 Leistungsseiten
+befüllt (inkl. `FAQPage`-JSON-LD). Offene redaktionelle Punkte (Fotos,
+Zitat, USt-IdNr, Referenzprojekte) stehen weiterhin einzeln in
+`REDAKTION-TODO.md`.
