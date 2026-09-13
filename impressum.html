@@ -57,11 +57,12 @@
       <ul>
         <li><a href="index.html">Startseite</a></li>
         <li class="has-dropdown">
-          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="leistungen-dropdown">
-            Leistungen
+          <a href="leistungen/index.html" class="dropdown-toggle">Leistungen</a>
+          <button type="button" class="dropdown-caret" aria-expanded="false" aria-controls="leistungen-dropdown" aria-label="Leistungen-Unterseiten anzeigen">
             <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <ul class="dropdown" id="leistungen-dropdown">
+              <li><a href="leistungen/index.html">Alle Leistungen im Überblick</a></li>
               <li><a href="leistungen/fassadenanstrich-fassadensanierung-muelheim.html">Fassadenanstrich & Fassadensanierung Mülheim</a></li>
               <li><a href="leistungen/waermedaemmung-wdvs-muelheim.html">Wärmedämmung / WDVS Mülheim</a></li>
               <li><a href="leistungen/fassadenanstrich-essen.html">Fassadenanstrich Essen</a></li>
@@ -84,6 +85,9 @@
 </header>
 <main id="main">
 
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Startseite</a></li><li aria-current="page">Impressum</li></ol></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://daiworld450.github.io/malerbetrieb-abduloski/index.html"},{"@type":"ListItem","position":2,"name":"Impressum"}]}</script>
+
 <section class="page-hero page-hero--narrow">
   <div class="container"><h1>Impressum</h1></div>
 </section>
@@ -98,9 +102,6 @@
     <h2>Kontakt</h2>
     <p>Telefon: <a href="tel:+4915731464675">(01573) 1464675</a><br>
     E-Mail: <a href="mailto:sa-service@gmx.de">sa-service@gmx.de</a></p>
-
-    <h2>Umsatzsteuer-Identifikationsnummer</h2>
-    <p>[TODO Redaktion: USt-IdNr. gemäß § 27a Umsatzsteuergesetz ergänzen, sofern vorhanden.]</p>
 
     <h2>Berufsbezeichnung</h2>
     <p>Maler- und Lackiererbetrieb (Einzelunternehmen).</p>
@@ -143,6 +144,7 @@
     <div class="footer-col">
       <h2>Leistungen</h2>
       <ul>
+        <li><a href="leistungen/index.html">Alle Leistungen im Überblick</a></li>
         <li><a href="leistungen/fassadenanstrich-fassadensanierung-muelheim.html">Fassadenanstrich & Fassadensanierung Mülheim</a></li>
         <li><a href="leistungen/waermedaemmung-wdvs-muelheim.html">Wärmedämmung / WDVS Mülheim</a></li>
         <li><a href="leistungen/fassadenanstrich-essen.html">Fassadenanstrich Essen</a></li>
@@ -160,6 +162,7 @@
       <h2>Unternehmen</h2>
       <ul>
         <li><a href="index.html">Startseite</a></li>
+        <li><a href="referenzen.html">Referenzen</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="impressum.html">Impressum</a></li>
