@@ -17,8 +17,9 @@ dem vorgesehenen Alt-Text und Beispiel-Markup, z. B.:
 <div class="img-placeholder" ...>...</div>
 ```
 
-Betroffene Slots:
-- `index.html`: Hero-Bild, zwei Pillar-Kacheln (Fassade/Innenraum)
+Betroffene Slots (Stand Redesign Welle A, 2026-09-13):
+- `index.html`: Hero-Bild, drei Service-Karten (Innenraum/Fassade/WDVS),
+  Vorher/Nachher-Bildpaar (siehe Punkt 8), Portrait im Block „Der Betrieb“
 - alle 7 Leistungsseiten: je ein Hero-Bild zum jeweiligen Thema
 - `ueber-uns.html`: ein Bild (Inhaber/Betrieb)
 
@@ -65,3 +66,29 @@ echte Bewertungen vorliegen, kann ein `aggregateRating`-Feld im JSON-LD
 (`<script type="application/ld+json">` in jeder Seite) ergänzt werden, aber
 nur mit echten, aktuellen Werten (nicht statisch eintragen, sonst veraltet es
 und wird zur Falschangabe).
+
+## 8. Vorher/Nachher-Projekt auf der Startseite (neu seit Redesign Welle A)
+Datei: `index.html`, Abschnitt „Vorher. Nachher. Ein echter Unterschied.“
+(Komponente `BeforeAfterSlider`, Klasse `.before-after`). Der Slider selbst
+ist voll funktionsfähig (Maus/Touch/Tastatur), zeigt aber noch zwei
+Platzhalterbilder mit den Texten „Vorher-Foto folgt“ / „Nachher-Foto folgt“.
+Zusätzlich ist der Begleittext daneben komplett Platzhalter:
+`[Projektname folgt]`, `[Ort folgt]`, `[Leistung folgt]` sowie ein
+generischer Ankündigungssatz. Aktion: Sobald ein erstes abgeschlossenes
+Projekt mit Fotoerlaubnis des Kunden vorliegt, beide `.img-placeholder`-Divs
+im `.before-after`-Block durch echte Vorher-/Nachher-Fotos ersetzen (Alt-Text
+entsprechend anpassen) und die drei eckigen Klammern durch echte Angaben
+ersetzen – keine Fantasieprojekte eintragen.
+
+## 9. Inhaltliche Beschreibung „Der Betrieb“ auf der Startseite (neu)
+Datei: `index.html`, Abschnitt „Der Betrieb“ (Komponente Owner-Block).
+Verwendet bewusst denselben Platzhaltertext wie `ueber-uns.html`
+(`[Zitat vom Inhaber folgt]`), damit nicht zwei unterschiedliche erfundene
+Zitate entstehen. Sobald ein echtes Zitat vorliegt, an **beiden** Stellen
+(`index.html` und `ueber-uns.html`) eintragen.
+
+## 10. Regionsgrafik (SVG, neu)
+Datei: `index.html`, Abschnitt „Unsere Region“ (`.region-map`). Es handelt
+sich um eine bewusst einfache, selbst gezeichnete, schematische Darstellung
+(keine echte Kartengrafik, kein Kartendienst mit Kosten) – rein dekorativ,
+`aria-hidden="true"`. Kein Redaktionsbedarf, außer die Orte ändern sich.
