@@ -4,10 +4,12 @@ Diese Datei dokumentiert das Redesign-Fundament aus **Welle A** (2026-09-13),
 ergänzt um die Komponenten und Muster aus **Welle B** (2026-09-14 – restliche
 Unterseiten fertiggestellt: `leistungen/index.html`, `referenzen.html`, alle
 7 Leistungsseiten inhaltlich neu, `ueber-uns.html`, `kontakt.html`,
-`impressum.html`, `datenschutz.html`, `404.html`). Abschnitt 10 am Ende
-dieser Datei fasst die Welle-B-Ergänzungen zusammen; alle vorherigen
-Abschnitte gelten unverändert weiter, **außer wo Abschnitt 10 sie explizit
-ersetzt** (Nav-Struktur, siehe dort).
+`impressum.html`, `datenschutz.html`, `404.html`) und **Welle C** (2026-09-14 –
+Feinkorrektur anhand des Referenz-Moodboards des Auftraggebers: TrustBar,
+Owner-Block, Region, CTA-Banner, Cross-Link-Module, Bild-Platzhalter,
+Marken-Tagline). Abschnitt 10 fasst Welle B zusammen, Abschnitt 11 fasst
+Welle C zusammen; alle vorherigen Abschnitte gelten unverändert weiter,
+**außer wo Abschnitt 10 oder 11 sie explizit ersetzt**.
 
 Kein Build-Step, kein npm, kein Framework – reines HTML/CSS/Vanilla-JS, wie
 im gesamten Repo üblich. Alles lebt in `css/style.css` und `js/main.js`.
@@ -191,10 +193,19 @@ Zwei Varianten:
    (`h1`, `.kicker`, `.hero-lead` werden automatisch weiß/hell). Gedacht für
    die Leistungsseiten-Hero-Bilder, sobald echte Fotos vorliegen.
 
+Verwandte Variante fürs Abschluss-CTA (Welle C, Abschnitt 11.4):
+`.cta-banner--image-bg` auf `.cta-section` – gleiches Prinzip (Inline-Style
++ Verlauf-Overlay), aber mit einem **sichtbaren** Foto-Platzhalter
+(`.cta-banner__bg`), solange kein Foto vorliegt.
+
 ### TrustBar
-Dünne Leiste mit Haken-Icons (reines Inline-SVG, kein Icon-Font):
+**Ersetzt seit Welle C (siehe Abschnitt 11.1) durch ein 3-Spalten-Grid**
+(`.trust-grid`/`.trust-item`) statt der ursprünglichen Fließtext-Zeile unten.
+Die Markup-Struktur unten (`.trust-bar__list`/`.trust-bar__item`) ist veraltet
+und wird nicht mehr eingesetzt – Abschnitt 11.1 zeigt das aktuelle Markup.
 
 ```html
+<!-- veraltet seit Welle C, nur zur Historie -->
 <section class="trust-bar">
   <div class="container trust-bar__list">
     <div class="trust-bar__item"><svg …/><span>Text</span></div>
@@ -285,19 +296,24 @@ Markup-Vertrag (exakt einhalten, sonst greift das JS nicht):
 ```
 4 Spalten Desktop → 2 Spalten <1024px → 1 Spalte <480px.
 
-### Owner-Block ("Der Betrieb")
-Dunkle Card, Grid Bild+Text. Siehe `index.html` für das volle Beispiel.
-Klassen: `.owner-block`, `.owner-block__media`, `.owner-block__body`,
-`.owner-block__quote` (Serif, kursiv), `.owner-block__note`,
-`.owner-block__signature` (Serif, kursiv, groß). Nutzt denselben
-Platzhaltertext wie `ueber-uns.html` (`[Zitat vom Inhaber folgt]`) – beide
-Stellen synchron halten, siehe `REDAKTION-TODO.md` Punkt 9.
+### Owner-Block ("Ihr Malermeister")
+**Seit Welle C (Abschnitt 11.2) ein vollflächiges dunkles Band** statt einer
+eingerückten Card – siehe Abschnitt 11.2 für das aktuelle Markup und die
+Klassen `.owner-section`/`.owner-block__role`. Grundprinzip unverändert: Grid
+Bild+Text, `.owner-block__signature` (Serif, kursiv, groß). Nutzt denselben
+Platzhaltertext wie `ueber-uns.html` (`.placeholder-note`) – beide Stellen
+synchron halten, siehe `REDAKTION-TODO.md` Punkt 5.
 
 ### Region-Komponenten
-`.region-grid` (Karten `.region-card`, Modifier `.region-card--note` für
-gestrichelte "auf Anfrage"-Karte) + `.region-map` (rein dekoratives,
-selbst gezeichnetes Inline-SVG, `aria-hidden="true"`, **kein** Kartendienst,
-keine echten Geodaten – bewusst schematisch).
+`.region-card` bleibt bestehen (weiterhin genutzt in `.factor-grid` auf
+Leistungsseiten), `.region-grid` (4er-Karten-Grid) bleibt als Klasse
+verfügbar. **Auf der Startseite ersetzt seit Welle C** (Abschnitt 11.3) die
+einfachere `.region-layout`/`.region-list`-Kombination direkt neben
+`.region-map` das vorherige Karten-Grid + separate Grafik darunter.
+`.region-map` bleibt ein rein dekoratives, selbst gezeichnetes Inline-SVG,
+`aria-hidden="true"`, **kein** Kartendienst, keine echten Geodaten – bewusst
+schematisch (seit Welle C in vertikaler statt horizontaler Anordnung, damit
+es neben der Liste passt).
 
 ### FAQAccordion (Basis fertig, noch ungenutzt)
 Semantisches `<details>/<summary>`, kein JS nötig:
@@ -333,7 +349,11 @@ Gedacht für die Leistungsseiten in Welle B (z.B. "Was kostet …",
   `.img-placeholder--dark` für Platzhalter auf dunklem Grund) – **immer**
   mit HTML-Kommentar direkt darüber, der das künftige `<img>`-Tag mit
   fertigem Alt-Text zeigt (bestehende Konvention aus `REDAKTION-TODO.md`
-  Punkt 1, unverändert fortführen).
+  Punkt 1, unverändert fortführen). **Seit Welle C** (Abschnitt 11.6)
+  zentral in `css/style.css` überarbeitet: sanfter Verlauf statt
+  Diagonal-Schraffur, plus ein dezentes Bild-Icon oberhalb der Text-Pille –
+  gilt automatisch für jeden `.img-placeholder` im gesamten Repo, kein
+  HTML-Einzelaustausch nötig.
 
 ### Entfernte Klassen (nicht wiederverwenden)
 `.pillar-grid`, `.pillar-card` (ersetzt durch `.service-grid`/
@@ -465,7 +485,9 @@ ohne Kartenrahmen, z.B. "Bilder bei der Arbeit" auf `ueber-uns.html`. 4
 Spalten Desktop → 2 → 2 (480px).
 
 **Cross-Link-Modul** (`.cross-link`) – Teaser-Box mit Text + CTA-Button zu
-einer weiterführenden Leistungsseite.
+einer weiterführenden Leistungsseite. **Seit Welle C** (Abschnitt 11.5)
+zusätzlich mit optionalem `.cross-link__visual` (Device-Preview-Mockup)
+zwischen Text und Button.
 
 ```html
 <div class="cross-link">
@@ -474,6 +496,7 @@ einer weiterführenden Leistungsseite.
     <h3>Titel</h3>
     <p>Ein bis zwei Sätze Teaser-Text.</p>
   </div>
+  <div class="cross-link__visual"><!-- optional, siehe DevicePreview 11.5 --></div>
   <a href="ziel.html" class="btn btn-outline">CTA-Text</a>
 </div>
 ```
@@ -565,3 +588,165 @@ läuft auf `referenzen.html` und im Innenraum-Leistungspillar,
 befüllt (inkl. `FAQPage`-JSON-LD). Offene redaktionelle Punkte (Fotos,
 Zitat, USt-IdNr, Referenzprojekte) stehen weiterhin einzeln in
 `REDAKTION-TODO.md`.
+
+## 11. Welle C – Feinkorrektur anhand des Referenz-Moodboards (2026-09-14)
+
+Auslöser: Der Auftraggeber sah die fertige Welle A+B und sagte, die Seite
+folge dem Design seines Referenzbilds nicht genug. Welle C behebt die
+konkret benannten Lücken, **ohne** Farben/Fonts/Grundlayout neu zu erfinden.
+Bestätigter neuer Fakt seit Welle C: Sevdan Abduloski ist **Malermeister**
+(Inhaber-Bestätigung 2026-09-14) – "Malermeister"/"Meisterqualität" darf
+verwendet werden, siehe `REDAKTION-TODO.md` Punkt 3. Gründungsjahr/Teamgröße
+bleiben weiterhin offen.
+
+### 11.1 TrustBar → TrustGrid (3 Spalten statt Fließtext-Zeile)
+
+Ersetzt `.trust-bar__list`/`.trust-bar__item` (veraltet, nicht mehr
+einsetzen). Neue Klassen: `.trust-grid` (Grid-Container, 3 Spalten Desktop
+→ 1 Spalte <768px) mit `.trust-item` (Icon-Kreis + fetter Titel + gedämpfter
+Subtext, alles zentriert):
+
+```html
+<section class="trust-bar">
+  <div class="container trust-grid">
+    <div class="trust-item">
+      <span class="trust-item__icon" aria-hidden="true"><svg …/></span>
+      <p class="trust-item__title">Titel</p>
+      <p class="trust-item__subtext">Zweite, gedämpfte Zeile</p>
+    </div>
+    … (3 Stück)
+  </div>
+</section>
+```
+Bewusst **kein** Rahmen um die einzelnen Spalten – die Trennung entsteht rein
+über das Grid. Auf `index.html` aktuell: Regionale Expertise / Meisterqualität
+/ Persönliche Beratung.
+
+### 11.2 Owner-Block → vollflächiges dunkles Band + Signatur-Layout
+
+Der Abschnitt heißt jetzt "Ihr Malermeister" (H2), Kicker bleibt "Der
+Betrieb". Die äußere `<section>` trägt neu die Klasse `.owner-section`
+(Hintergrund `--color-ink`, normales `.section`-Padding, volle Breite –
+**keine** eingerückte Card mehr). `.owner-block` selbst ist nur noch das
+2-spaltige Grid (Text links, Portrait rechts, Portrait-Spalte etwas größer
+als die Textspalte: `1fr 1.15fr`). Neue Klasse `.owner-block__role` (kleines
+Uppercase-Label in Akzentfarbe). `.owner-block__signature` ist jetzt deutlich
+größer (`clamp(2.1rem, 3.4vw, 2.75rem)`) und steht direkt unter der
+Überschrift, nicht mehr am Ende:
+
+```html
+<section class="section owner-section">
+  <div class="container">
+    <div class="owner-block">
+      <div class="owner-block__body">
+        <p class="kicker">Der Betrieb</p>
+        <h2>Ihr Malermeister</h2>
+        <p class="owner-block__signature">Sevdan Abduloski</p>
+        <p class="owner-block__role">Inhaber &amp; Malermeister</p>
+        <p class="owner-block__note">Ein bis zwei Sätze ehrlicher Text, darf
+        "Malermeister" erwähnen.</p>
+        <p class="placeholder-note placeholder-note--on-ink">Ein persönliches Wort vom Inhaber folgt in Kürze.</p>
+      </div>
+      <div class="owner-block__media">
+        <div class="img-placeholder img-placeholder--dark" …>…</div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+Auf Mobile (<900px) weiterhin `.owner-block__media { order: -1; }` – Portrait
+steht beim Stapeln oben.
+
+### 11.3 Region: Liste + Grafik direkt nebeneinander
+
+Neue Klassen `.region-layout` (2-spaltiges Grid, `0.85fr 1.15fr`, <900px auf
+1 Spalte) und `.region-list` (einfache `<ul>` mit orangem Punkt-Marker via
+`::before`, je Eintrag `<strong>Ort</strong><span>Kurzbeschreibung</span>`).
+`.region-map` sitzt als zweite Grid-Spalte **direkt daneben** (nicht mehr
+darunter) und wurde dafür von einer horizontalen (`viewBox="0 0 800 130"`)
+auf eine vertikale Anordnung (`viewBox="0 0 320 440"`) umgezeichnet, damit
+sie in der schmaleren Spalte lesbar bleibt. `.region-card`/`.region-grid`
+bleiben als Klassen bestehen (weiter genutzt in `.factor-grid` auf
+Leistungsseiten bzw. für mögliche künftige Kartenlayouts), werden auf der
+Startseite aber nicht mehr für die Regionsübersicht eingesetzt.
+
+### 11.4 CTA-Banner mit Foto-Hintergrund
+
+Neue Klasse `.cta-banner--image-bg` auf `.cta-section` (analog zu
+`.page-hero--image-bg`: dunkles Verlaufs-Overlay per `::after`, damit Text
+lesbar bleibt). Solange kein echtes Foto vorliegt, füllt eine
+`.cta-banner__bg`-Div (= `.img-placeholder.img-placeholder--dark` +
+absolute Positionierung über den ganzen Banner) die Fläche – **bewusst
+sichtbar** ("Foto folgt"-Hinweis), anders als die stille Variante bei
+`.page-hero--image-bg` ohne Bild. Sobald ein Foto vorliegt: Inline-Style
+`style="background-image:url('…')"` auf das `<section>`-Tag setzen und die
+`.cta-banner__bg`-Div entfernen.
+
+```html
+<section class="section cta-section cta-banner--image-bg">
+  <div class="img-placeholder img-placeholder--dark cta-banner__bg" role="img" aria-label="Foto folgt">
+    <span class="img-placeholder__text">Foto folgt</span>
+  </div>
+  <div class="container cta-box">…</div>
+</section>
+```
+
+### 11.5 DevicePreview (Phone-Mockup in Cross-Link-Modulen)
+
+Rein dekoratives, selbstgebautes CSS/SVG-freies Smartphone-Gehäuse mit
+vereinfachter Mini-Vorschau (Mini-Header, Mini-Headline, zwei Content-Zeilen,
+oranger Mini-Button). Kein echtes Foto/Screenshot nötig, `aria-hidden="true"`.
+Klassen: `.device-preview`, `.device-preview__notch`,
+`.device-preview__screen`, `.device-preview__header`,
+`.device-preview__headline`, `.device-preview__line` (+ Modifier
+`.device-preview__line--short`), `.device-preview__button`.
+
+```html
+<div class="device-preview" aria-hidden="true">
+  <div class="device-preview__notch"></div>
+  <div class="device-preview__screen">
+    <div class="device-preview__header"></div>
+    <div class="device-preview__headline"></div>
+    <div class="device-preview__line"></div>
+    <div class="device-preview__line device-preview__line--short"></div>
+    <div class="device-preview__button"></div>
+  </div>
+</div>
+```
+Eingesetzt im `.cross-link__visual`-Slot (siehe Abschnitt 6) auf
+`leistungen/fassadenanstrich-fassadensanierung-muelheim.html` (Teaser →
+WDVS) und `leistungen/innenanstrich-tapezieren-muelheim.html` (Teaser →
+Innenanstrich Essen).
+
+### 11.6 Bild-Platzhalter: sanfter statt "Baustellenband"
+
+`.img-placeholder`-Hintergrund von einer kontrastreichen Diagonal-Schraffur
+auf einen sehr sanften Verlauf (`--color-paper`/`--color-subtle`, bzw.
+`--color-ink-soft`/`#1b1d1f` für `.img-placeholder--dark`) umgestellt, plus
+ein dezentes Bild-Icon (`::before`, SVG-Daten-URI, 50%/40% Deckkraft)
+zentriert über der bestehenden Text-Pille. Zentral in `css/style.css`
+gepflegt – wirkt automatisch auf jeden `.img-placeholder` im gesamten Repo,
+kein Einzelaustausch in den HTML-Dateien nötig. Ausnahme: In sehr flachen
+Medien-Slots (`.before-after__side .img-placeholder`) bleibt nur die
+Text-Pille sichtbar, das Icon wird dort per Regel ausgeblendet.
+
+### 11.7 Marken-Tagline
+
+Neue Klasse `.brand-tagline` (Serif, kursiv, klein, gedämpfte Farbe,
+zentriert) – reine Slogan-Sprache, keine Tatsachenbehauptung. Eingesetzt
+unter dem Hero-Bild auf `index.html` ("Qualität, die man sieht. Ein gutes
+Gefühl.") – bewusst derselbe Wortlaut wie die bestehende
+`.footer-tagline`, um Startseite und Footer konsistent zu halten statt zwei
+verschiedene Slogans zu führen.
+
+### 11.8 Geprüft und bereits korrekt (keine Änderung nötig)
+
+- **ServiceCard-Proportionen**: Bildbereich (`.service-card__media`,
+  `aspect-ratio: 4/3`) ist bereits der dominante Teil der Karte (deutlich
+  über 60% der Kartenhöhe), Karte hebt sich bereits mit `--shadow-sm`/
+  `--shadow-md` und weißem Hintergrund vom Seitenhintergrund ab. Gilt
+  identisch auf `index.html` und `leistungen/index.html`.
+- **BeforeAfterSlider-Handle**: `.before-after__grip` ist bereits ein
+  44px-Kreis mit sichtbarem Links-Rechts-Pfeil-Icon (kein reiner Strich).
+- **Footer-Tagline**: existierte bereits wortgleich zur neuen
+  `.brand-tagline` (siehe 11.7) – nicht dupliziert, nur abgeglichen.

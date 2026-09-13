@@ -24,9 +24,16 @@ dem vorgesehenen Alt-Text und Beispiel-Markup, z. B.:
 <div class="img-placeholder" ...>...</div>
 ```
 
-Betroffene Slots (Stand Redesign Welle B, 2026-09-14):
+Betroffene Slots (Stand Redesign Welle B, 2026-09-14; **Welle C, 2026-09-14
+ergänzt**: CTA-Banner-Hintergrundbild):
 - `index.html`: Hero-Bild, drei Service-Karten (Innenraum/Fassade/WDVS),
-  Vorher/Nachher-Bildpaar (siehe Punkt 8), Portrait im Block „Der Betrieb“
+  Vorher/Nachher-Bildpaar (siehe Punkt 8), Portrait im Block „Ihr
+  Malermeister“, **neu (Welle C): Hintergrundbild im Abschluss-CTA-Banner**
+  (`.cta-banner--image-bg`, aktuell `.cta-banner__bg`-Platzhalter mit
+  sichtbarem „Foto folgt“-Hinweis – sobald ein Foto vorliegt: Inline-Style
+  `style="background-image:url('…')"` auf das `<section class="cta-section
+  cta-banner--image-bg">`-Tag setzen und die `.cta-banner__bg`-Div
+  entfernen, siehe `DESIGN-SYSTEM.md` Abschnitt 11.4)
 - `leistungen/index.html`: Hero-Bild, zehn Leistungs-Karten (Innenraum-,
   Fassade- und WDVS-Gruppe)
 - `leistungen/fassadenanstrich-fassadensanierung-muelheim.html`: Hero-Hintergrundbild
