@@ -56,12 +56,13 @@ Untergrundvorbereitung, Risssanierung, Wärmedämmung/WDVS, Gestaltung und
 Beschichtung, Innenanstrich, Tapezieren, Lackierarbeiten an Holz/Fenster/
 Türen.
 
-## 3. Gründungsjahr / Meistertitel / Teamgröße
-Nicht bestätigt. Deshalb nirgends ein "seit 19XX", kein "Meisterbetrieb",
-keine Team- oder Mitarbeiterzahl auf der Seite (auch nicht auf `ueber-uns.html`,
-dort bewusst kein Zertifikate-/Qualifikations-Abschnitt eingebaut). Falls
-einer dieser Punkte zutrifft, gehört er in `ueber-uns.html` (Abschnitt "Der
-Betrieb") und kann den Trust-Bereich auf `index.html` verstärken.
+## 3. Gründungsjahr / Teamgröße (weiterhin offen) — Meistertitel jetzt bestätigt
+**Update 2026-09-14:** Der Inhaber hat bestätigt, dass Sevdan Abduloski
+Malermeister ist. „Malermeister"/„Meisterqualität" darf ab sofort auf der
+Seite verwendet werden (Trust-Bereich, „Der Betrieb"/Ihr-Malermeister-Abschnitt,
+`ueber-uns.html`, ggf. JSON-LD). Weiterhin NICHT bestätigt: Gründungsjahr
+("seit 19XX") und Team-/Mitarbeiterzahl — dort bleibt es bei generischen
+Formulierungen, bis der Inhaber das liefert.
 
 ## 4. USt-IdNr. für das Impressum
 Datei: `impressum.html`. **Seit Welle B (2026-09-14) steht dort keine
