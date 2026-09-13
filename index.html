@@ -105,24 +105,28 @@
 <div class="img-placeholder" style="aspect-ratio:4 / 5;" role="img" aria-label="Malerarbeiten von Sevdan Abduloski Malerbetrieb in Mülheim an der Ruhr">
   <span class="img-placeholder__text">Foto folgt</span>
 </div>
+      <p class="brand-tagline">Qualität, die man sieht. Ein gutes Gefühl.</p>
     </div>
   </div>
 </section>
 
-<!-- 2) TrustBar -->
+<!-- 2) TrustBar (Welle C: 3 Spalten mit Icon/Titel/Subtext statt Fließtext-Zeile) -->
 <section class="trust-bar">
-  <div class="container trust-bar__list">
-    <div class="trust-bar__item">
-      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 10.3l2.4 2.4L14 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Regionale Expertise · Mülheim · Essen · Oberhausen</span>
+  <div class="container trust-grid">
+    <div class="trust-item">
+      <span class="trust-item__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 10.3l2.4 2.4L14 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <p class="trust-item__title">Regionale Expertise</p>
+      <p class="trust-item__subtext">Mülheim · Essen · Oberhausen</p>
     </div>
-    <div class="trust-bar__item">
-      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 10.3l2.4 2.4L14 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Persönliche Beratung</span>
+    <div class="trust-item">
+      <span class="trust-item__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 10.3l2.4 2.4L14 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <p class="trust-item__title">Meisterqualität</p>
+      <p class="trust-item__subtext">Zuverlässig &amp; sauber</p>
     </div>
-    <div class="trust-bar__item">
-      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 10.3l2.4 2.4L14 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Saubere, zuverlässige Ausführung</span>
+    <div class="trust-item">
+      <span class="trust-item__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 10.3l2.4 2.4L14 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <p class="trust-item__title">Persönliche Beratung</p>
+      <p class="trust-item__subtext">Direkt vom Inhaber</p>
     </div>
   </div>
 </section>
@@ -251,24 +255,29 @@
   </div>
 </section>
 
-<!-- 6) Der Betrieb (Owner-Block) -->
-<section class="section section-alt">
+<!-- 6) Ihr Malermeister (Owner-Block) -->
+<!-- Welle C: vollflächiges dunkles Band statt eingerückter Card, Name als
+     große Signatur, Rolle als Label, Portrait rechts größer als die
+     Textspalte (siehe DESIGN-SYSTEM.md Abschnitt 11.2). -->
+<section class="section owner-section">
   <div class="container">
     <div class="owner-block">
-      <div class="owner-block__media">
-        <!-- Foto folgt - spaeter ersetzen durch:
-     <img src="/bilder/…" alt="Sevdan Abduloski, Inhaber des Malerbetriebs" width="700" height="933" loading="lazy"> -->
-<div class="img-placeholder img-placeholder--dark" role="img" aria-label="Sevdan Abduloski, Inhaber des Malerbetriebs">
-  <span class="img-placeholder__text">Foto folgt</span>
-</div>
-      </div>
       <div class="owner-block__body">
         <p class="kicker">Der Betrieb</p>
-        <h2>Sevdan Abduloski Malerbetrieb</h2>
-        <p class="placeholder-note placeholder-note--on-ink">Ein persönliches Wort vom Inhaber folgt in Kürze.</p>
-        <p class="owner-block__note">Einzelunternehmen mit Sitz in Mülheim an der Ruhr (Heißen). Anfragen werden
-        persönlich beantwortet, ein Angebot entsteht nach einem Vor-Ort-Termin oder anhand von Fotos.</p>
+        <h2>Ihr Malermeister</h2>
         <p class="owner-block__signature">Sevdan Abduloski</p>
+        <p class="owner-block__role">Inhaber &amp; Malermeister</p>
+        <p class="owner-block__note">Sevdan Abduloski ist Malermeister und führt den Betrieb persönlich – mit Sitz
+        in Mülheim an der Ruhr (Heißen). Anfragen werden persönlich beantwortet, ein Angebot entsteht nach einem
+        Vor-Ort-Termin oder anhand von Fotos.</p>
+        <p class="placeholder-note placeholder-note--on-ink">Ein persönliches Wort vom Inhaber folgt in Kürze.</p>
+      </div>
+      <div class="owner-block__media">
+        <!-- Foto folgt - spaeter ersetzen durch:
+     <img src="/bilder/…" alt="Sevdan Abduloski, Malermeister und Inhaber des Malerbetriebs" width="800" height="1067" loading="lazy"> -->
+<div class="img-placeholder img-placeholder--dark" role="img" aria-label="Sevdan Abduloski, Malermeister und Inhaber des Malerbetriebs">
+  <span class="img-placeholder__text">Foto folgt</span>
+</div>
       </div>
     </div>
   </div>
@@ -281,43 +290,42 @@
     <h2>Unsere Region – für Sie vor Ort</h2>
     <p class="section-lead">Der Betriebssitz liegt in Mülheim-Heißen. Aufträge werden regelmäßig in
     Mülheim an der Ruhr, Essen und Oberhausen ausgeführt. Für Duisburg ist eine Ausführung auf Anfrage möglich.</p>
-    <div class="region-grid">
-      <div class="region-card">
-        <h3>Mülheim an der Ruhr</h3>
-        <p>Betriebssitz in Mülheim-Heißen – kurze Wege im gesamten Stadtgebiet.</p>
+    <!-- Welle C: einfache Liste direkt neben der Regionsgrafik (Grid, 2
+         Spalten) statt Karten-Grid mit separater Grafik darunter. -->
+    <div class="region-layout">
+      <ul class="region-list">
+        <li><strong>Mülheim an der Ruhr</strong><span>Betriebssitz in Mülheim-Heißen – kurze Wege im gesamten Stadtgebiet.</span></li>
+        <li><strong>Essen</strong><span>Grenznahe Stadtteile wie Frohnhausen, Altendorf und Borbeck ohne lange Anfahrt.</span></li>
+        <li><strong>Oberhausen</strong><span>Gut erreichbar über die A40, kurze Anfahrt aus Mülheim-Heißen.</span></li>
+        <li><strong>Duisburg <em>(auf Anfrage)</em></strong><span>Ausführung nach Absprache möglich.</span></li>
+      </ul>
+      <div class="region-map" aria-hidden="true">
+        <svg viewBox="0 0 320 440" xmlns="http://www.w3.org/2000/svg">
+          <line x1="160" y1="45" x2="160" y2="400" stroke="var(--color-border)" stroke-width="2"/>
+          <circle cx="160" cy="45" r="7" fill="none" stroke="var(--color-text-muted)" stroke-width="2" stroke-dasharray="3 3"/>
+          <text x="195" y="50" text-anchor="start" font-family="Manrope, sans-serif" font-size="15" fill="var(--color-text-muted)">Duisburg</text>
+          <circle cx="160" cy="165" r="8" fill="var(--color-white)" stroke="var(--color-ink)" stroke-width="2"/>
+          <text x="195" y="170" text-anchor="start" font-family="Manrope, sans-serif" font-size="15" font-weight="600" fill="var(--color-ink)">Oberhausen</text>
+          <circle cx="160" cy="285" r="11" fill="var(--color-accent)"/>
+          <text x="126" y="280" text-anchor="end" font-family="Manrope, sans-serif" font-size="12" font-weight="700" letter-spacing="0.06em" fill="var(--color-accent-dark)">BETRIEBSSITZ</text>
+          <text x="195" y="291" text-anchor="start" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="var(--color-ink)">Mülheim a. d. Ruhr</text>
+          <circle cx="160" cy="400" r="8" fill="var(--color-white)" stroke="var(--color-ink)" stroke-width="2"/>
+          <text x="195" y="405" text-anchor="start" font-family="Manrope, sans-serif" font-size="15" font-weight="600" fill="var(--color-ink)">Essen</text>
+        </svg>
       </div>
-      <div class="region-card">
-        <h3>Essen</h3>
-        <p>Grenznahe Stadtteile wie Frohnhausen, Altendorf und Borbeck ohne lange Anfahrt.</p>
-      </div>
-      <div class="region-card">
-        <h3>Oberhausen</h3>
-        <p>Gut erreichbar über die A40, kurze Anfahrt aus Mülheim-Heißen.</p>
-      </div>
-      <div class="region-card region-card--note">
-        <h3>Duisburg <span style="font-weight:400; color:var(--color-text-muted);">(auf Anfrage)</span></h3>
-        <p>Ausführung nach Absprache möglich.</p>
-      </div>
-    </div>
-    <div class="region-map" aria-hidden="true">
-      <svg viewBox="0 0 800 130" xmlns="http://www.w3.org/2000/svg">
-        <line x1="60" y1="60" x2="740" y2="60" stroke="var(--color-border)" stroke-width="2"/>
-        <circle cx="140" cy="60" r="7" fill="none" stroke="var(--color-text-muted)" stroke-width="2" stroke-dasharray="3 3"/>
-        <text x="140" y="100" text-anchor="middle" font-family="Manrope, sans-serif" font-size="15" fill="var(--color-text-muted)">Duisburg</text>
-        <circle cx="330" cy="60" r="8" fill="var(--color-white)" stroke="var(--color-ink)" stroke-width="2"/>
-        <text x="330" y="100" text-anchor="middle" font-family="Manrope, sans-serif" font-size="15" font-weight="600" fill="var(--color-ink)">Oberhausen</text>
-        <circle cx="500" cy="60" r="11" fill="var(--color-accent)"/>
-        <text x="500" y="34" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="700" letter-spacing="0.06em" fill="var(--color-accent-dark)">BETRIEBSSITZ</text>
-        <text x="500" y="102" text-anchor="middle" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="var(--color-ink)">Mülheim a. d. Ruhr</text>
-        <circle cx="670" cy="60" r="8" fill="var(--color-white)" stroke="var(--color-ink)" stroke-width="2"/>
-        <text x="670" y="100" text-anchor="middle" font-family="Manrope, sans-serif" font-size="15" font-weight="600" fill="var(--color-ink)">Essen</text>
-      </svg>
     </div>
   </div>
 </section>
 
 <!-- 8) Abschluss-CTA -->
-<section class="section cta-section">
+<!-- Foto folgt - spaeter ergänzen durch Inline-Style
+     style="background-image:url('/bilder/…')" auf diesem <section>-Tag
+     (Bildmotiv: fertige Malerarbeiten/Fassade), danach die
+     .cta-banner__bg-Div darunter entfernen. -->
+<section class="section cta-section cta-banner--image-bg">
+  <div class="img-placeholder img-placeholder--dark cta-banner__bg" role="img" aria-label="Foto folgt">
+    <span class="img-placeholder__text">Foto folgt</span>
+  </div>
   <div class="container cta-box">
     <p class="kicker">Kontakt</p>
     <h2>Lassen Sie uns Ihr Projekt gemeinsam verwirklichen.</h2>

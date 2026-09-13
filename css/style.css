@@ -324,6 +324,17 @@ main { display: block; }
   align-items: center;
 }
 .hero-lead { font-size: 1.12rem; color: var(--color-text-muted); max-width: 52ch; }
+/* Marken-Tagline (Welle C, 2026-09-14) – dezenter Slogan, z.B. unter dem
+   Hero-Bild und im Footer (.footer-tagline). Reine Slogan-Sprache, keine
+   Tatsachenbehauptung. */
+.brand-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: var(--space-2) 0 0;
+}
 
 .page-hero { padding: var(--space-5) 0; background: var(--color-paper); }
 .page-hero--narrow .container { max-width: 800px; }
@@ -356,22 +367,37 @@ main { display: block; }
 .page-hero--image-bg .hero-lead { color: var(--color-on-ink-muted); }
 
 /* -------------------- Image placeholders -------------------- */
+/* Welle C (2026-09-14): sanfter Verlauf statt Baustellen-Schraffur, plus
+   ein dezentes Bild-Icon (CSS-Hintergrundgrafik, reine Inline-SVG-Daten –
+   zentral hier gepflegt, damit sich ALLE Platzhalter im Repo automatisch
+   aktualisieren, ohne jede Seite einzeln anzufassen). */
 .img-placeholder {
   width: 100%;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  background:
-    repeating-linear-gradient(135deg, rgba(23,25,26,0.05), rgba(23,25,26,0.05) 1px, transparent 1px, transparent 13px),
-    var(--color-subtle);
+  background: linear-gradient(155deg, var(--color-paper) 0%, var(--color-subtle) 55%, var(--color-paper) 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.65rem;
   color: var(--color-text-muted);
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: 0.02em;
   overflow: hidden;
   position: relative;
+}
+.img-placeholder::before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B6357' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='16' rx='2'/%3E%3Ccircle cx='8.5' cy='9.5' r='1.4'/%3E%3Cpath d='M21 16l-5.3-5.3a1.5 1.5 0 0 0-2.12 0L4 20'/%3E%3C/svg%3E");
 }
 .img-placeholder__text {
   background: var(--color-white);
@@ -380,12 +406,17 @@ main { display: block; }
   box-shadow: var(--shadow-sm);
 }
 .img-placeholder--dark {
-  background:
-    repeating-linear-gradient(135deg, rgba(244,240,232,0.05), rgba(244,240,232,0.05) 1px, transparent 1px, transparent 13px),
-    var(--color-ink-soft);
+  background: linear-gradient(155deg, var(--color-ink-soft) 0%, #1b1d1f 55%, var(--color-ink-soft) 100%);
   border-color: rgba(244,240,232,0.16);
 }
+.img-placeholder--dark::before {
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F4F0E8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='16' rx='2'/%3E%3Ccircle cx='8.5' cy='9.5' r='1.4'/%3E%3Cpath d='M21 16l-5.3-5.3a1.5 1.5 0 0 0-2.12 0L4 20'/%3E%3C/svg%3E");
+}
 .img-placeholder--dark .img-placeholder__text { background: var(--color-ink); color: var(--color-on-ink); }
+/* Sehr flache Platzhalter (z.B. Card-Medien mit border-radius:0 und wenig
+   Höhe) verstecken das Icon automatisch, wenn kein Platz ist. */
+.before-after__side .img-placeholder::before { display: none; }
 
 /* -------------------- TrustBar -------------------- */
 .trust-bar {
@@ -393,21 +424,43 @@ main { display: block; }
   border-bottom: 1px solid var(--color-border);
   background: var(--color-white);
 }
-.trust-bar__list {
-  display: flex;
-  flex-wrap: wrap;
+/* Welle C (2026-09-14): TrustBar zeigt jetzt 3 Spalten (Icon + Titel +
+   gedämpfter Subtext) statt einer durchlaufenden Fließtext-Zeile. Ersetzt
+   die frühere .trust-bar__list/.trust-bar__item-Flexzeile. */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
-  padding: var(--space-3) 0;
+  padding: var(--space-4) 0;
+  text-align: center;
 }
-.trust-bar__item {
+.trust-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--color-ink);
 }
-.trust-bar__item svg { color: var(--color-accent); flex-shrink: 0; }
+.trust-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-accent);
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+.trust-item__title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-ink);
+  margin: 0 0 0.2rem;
+}
+.trust-item__subtext {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
 
 /* -------------------- ServiceCard -------------------- */
 .service-grid {
@@ -427,7 +480,9 @@ main { display: block; }
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 .service-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); color: inherit; }
-.service-card__media .img-placeholder { border-radius: 0; border-width: 0 0 1px; aspect-ratio: 4 / 3; }
+/* Welle C (2026-09-14): Aspect-Ratio von 4/3 auf 1/1 angehoben, damit der
+   Bildbereich zuverlässig >= 60% der Kartenhöhe einnimmt (war zuvor ~57.6%). */
+.service-card__media .img-placeholder { border-radius: 0; border-width: 0 0 1px; aspect-ratio: 1 / 1; }
 .service-card__body { padding: var(--space-3); }
 .service-card__body h3 { margin-bottom: 0.4rem; }
 .service-card__body p { color: var(--color-text-muted); margin-bottom: 0.75rem; }
@@ -561,20 +616,38 @@ main { display: block; }
 .process-step__title { font-weight: 700; margin-bottom: 0.35rem; font-size: 1.05rem; color: var(--color-ink); }
 .process-step__text { color: var(--color-text-muted); font-size: 0.95rem; margin: 0; }
 
-/* -------------------- Owner / "Der Betrieb" Block -------------------- */
+/* -------------------- Owner / "Ihr Malermeister" Block -------------------- */
+/* Welle C (2026-09-14): vom eingerückten dunklen Card-Look auf ein
+   vollflächiges dunkles Band umgestellt (.owner-section trägt jetzt Hintergrund
+   + Section-Padding, .owner-block ist nur noch das reine Grid-Layout). Text
+   steht links, das große Portrait rechts (Portrait-Spalte >= Text-Spalte). */
+.owner-section { background: var(--color-ink); }
 .owner-block {
-  background: var(--color-ink);
   color: var(--color-on-ink);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: 1fr 1.15fr;
   gap: var(--space-5);
   align-items: center;
 }
 .owner-block__media .img-placeholder { aspect-ratio: 3 / 4; }
 .owner-block .kicker { color: var(--color-accent); }
 .owner-block h2 { color: var(--color-white); }
+.owner-block__signature {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2.1rem, 3.4vw, 2.75rem);
+  color: var(--color-white);
+  margin: var(--space-1) 0 0.2rem;
+  line-height: 1.1;
+}
+.owner-block__role {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-3);
+}
 .owner-block__quote {
   font-family: var(--font-serif);
   font-size: 1.5rem;
@@ -583,15 +656,14 @@ main { display: block; }
   color: var(--color-white);
   margin: var(--space-2) 0 var(--space-3);
 }
-.owner-block__note { font-size: 0.85rem; color: var(--color-on-ink-muted); margin-bottom: var(--space-3); }
-.owner-block__signature {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.6rem;
-  color: var(--color-white);
-}
+.owner-block__note { font-size: 0.95rem; color: var(--color-on-ink-muted); margin-bottom: var(--space-3); }
 
 /* -------------------- Region -------------------- */
+/* Welle C (2026-09-14): auf der Startseite ersetzt .region-layout (einfache
+   Liste + Regionsgrafik direkt daneben) die vorherige 4-Karten-Grid-Ansicht.
+   .region-card bleibt als Klasse erhalten (weiterhin genutzt in .factor-grid
+   auf Leistungsseiten), .region-grid bleibt nutzbar, wird auf der Startseite
+   aber nicht mehr eingesetzt. */
 .region-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -607,7 +679,30 @@ main { display: block; }
 .region-card h3 { margin-bottom: 0.3rem; }
 .region-card p { color: var(--color-text-muted); margin: 0; font-size: 0.95rem; }
 .region-card--note { background: transparent; border-style: dashed; }
-.region-map { margin: var(--space-4) 0 0; }
+
+.region-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--space-5);
+  align-items: center;
+  margin-top: var(--space-4);
+}
+.region-list { display: grid; gap: var(--space-3); }
+.region-list li { position: relative; padding-left: 1.7rem; }
+.region-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+.region-list strong { display: block; color: var(--color-ink); font-size: 1.05rem; margin-bottom: 0.15rem; }
+.region-list span { display: block; color: var(--color-text-muted); font-size: 0.92rem; }
+.region-list em { font-style: normal; font-weight: 400; color: var(--color-text-muted); }
+.region-layout .region-map { margin: 0; }
 .region-map svg { width: 100%; height: auto; display: block; }
 
 /* -------------------- CTA banner -------------------- */
@@ -617,6 +712,38 @@ main { display: block; }
 .cta-box h2 { color: var(--color-white); }
 .cta-box p { color: var(--color-on-ink-muted); max-width: 60ch; margin-left: auto; margin-right: auto; }
 .cta-box .btn-row { justify-content: center; }
+
+/* CTA-Banner mit Foto-Hintergrund (Welle C, 2026-09-14) – analog zu
+   .page-hero--image-bg, aber fürs Abschluss-CTA. Solange kein echtes Foto
+   vorliegt, füllt ein .img-placeholder.img-placeholder--dark (Klasse
+   .cta-banner__bg) den gesamten Banner absolut aus – bewusst SICHTBAR
+   ("Foto folgt"), nicht unsichtbar wie bei der stillen Hero-Variante.
+   Sobald ein Foto vorliegt: background-image per Inline-Style auf DIESES
+   <section>-Tag setzen und die .cta-banner__bg-Div entfernen. */
+.cta-banner--image-bg {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-ink);
+  background-size: cover;
+  background-position: center;
+}
+.cta-banner--image-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16,17,18,0.35), rgba(16,17,18,0.85));
+  z-index: 1;
+}
+.cta-banner__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  z-index: 0;
+}
+.cta-banner--image-bg .container { position: relative; z-index: 2; }
 
 /* -------------------- Breadcrumb -------------------- */
 .breadcrumb { padding: var(--space-2) 0 0; }
@@ -795,11 +922,51 @@ main { display: block; }
   background: var(--color-white);
   margin-top: var(--space-5);
 }
-.cross-link__body { max-width: 62ch; }
+.cross-link__body { max-width: 52ch; flex: 1 1 260px; }
 .cross-link__body .kicker { margin-bottom: 0.3rem; }
 .cross-link__body h3 { margin-bottom: 0.35rem; }
 .cross-link__body p { color: var(--color-text-muted); margin: 0; }
 .cross-link .btn { flex-shrink: 0; }
+.cross-link__visual { flex-shrink: 0; }
+
+/* DevicePreview (Welle C, 2026-09-14) – rein dekoratives, selbstgebautes
+   CSS/SVG-Phone-Mockup mit vereinfachter Mini-Vorschau, eingesetzt in den
+   Cross-Link-Modulen. Kein echtes Foto/Screenshot nötig. */
+.device-preview {
+  width: 118px;
+  aspect-ratio: 9 / 18.5;
+  background: var(--color-ink);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  padding: 7px;
+  position: relative;
+}
+.device-preview__notch {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(244, 240, 232, 0.35);
+  z-index: 1;
+}
+.device-preview__screen {
+  height: 100%;
+  background: var(--color-white);
+  border-radius: 13px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 18px 9px 10px;
+}
+.device-preview__header { height: 9px; width: 55%; border-radius: 3px; background: var(--color-ink); }
+.device-preview__headline { height: 7px; width: 85%; border-radius: 3px; background: var(--color-border); margin-top: 4px; }
+.device-preview__line { height: 5px; width: 100%; border-radius: 3px; background: var(--color-subtle); }
+.device-preview__line--short { width: 62%; }
+.device-preview__button { margin-top: auto; height: 12px; width: 55%; border-radius: var(--radius-pill); background: var(--color-accent); }
 
 /* Toggle-Gruppe – Kategorie-Auswahl (kontakt.html) und Filter-Tabs (referenzen.html) */
 .toggle-group { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: var(--space-2) 0 var(--space-3); }
@@ -908,10 +1075,9 @@ main { display: block; }
 }
 
 @media (max-width: 900px) {
-  .hero-grid, .page-hero-grid, .two-col, .before-after-block, .owner-block { grid-template-columns: 1fr; }
+  .hero-grid, .page-hero-grid, .two-col, .before-after-block, .owner-block, .region-layout { grid-template-columns: 1fr; }
   .hero-media, .page-hero-grid > div:last-child { order: -1; }
   .owner-block__media { order: -1; }
-  .owner-block { padding: var(--space-4); }
   .spoke-grid { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
   .value-grid { grid-template-columns: 1fr; }
@@ -963,6 +1129,7 @@ main { display: block; }
   .footer-inner { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: 1fr 1fr; }
   .region-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; gap: var(--space-3); }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
 }
 
@@ -973,4 +1140,5 @@ main { display: block; }
   .factor-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .cross-link { flex-direction: column; align-items: flex-start; }
+  .cross-link__visual { align-self: center; margin: var(--space-1) 0; }
 }
