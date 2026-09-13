@@ -17,14 +17,16 @@ Build-Step, kein Framework, keine externen JS-Bibliotheken.
 
 ```
 index.html
+referenzen.html                                      (neu, Welle B)
 leistungen/
+  index.html                                         (neu, Welle B – Übersicht aller Leistungen)
   fassadenanstrich-fassadensanierung-muelheim.html   (Pillar Fassade)
-  waermedaemmung-wdvs-muelheim.html                  (Spoke)
-  fassadenanstrich-essen.html                        (Spoke)
-  fassadenanstrich-oberhausen.html                   (Spoke)
+  waermedaemmung-wdvs-muelheim.html                  (Spoke, mit WDVS-Aufbau-Diagramm)
+  fassadenanstrich-essen.html                        (Spoke, lokal individualisiert)
+  fassadenanstrich-oberhausen.html                   (Spoke, lokal individualisiert)
   innenanstrich-tapezieren-muelheim.html             (Pillar Innenraum)
-  innenanstrich-essen.html                           (Spoke)
-  innenanstrich-oberhausen.html                      (Spoke)
+  innenanstrich-essen.html                           (Spoke, lokal individualisiert)
+  innenanstrich-oberhausen.html                      (Spoke, lokal individualisiert)
 ueber-uns.html
 kontakt.html
 impressum.html
@@ -34,8 +36,14 @@ css/style.css
 js/main.js
 sitemap.xml
 robots.txt
+DESIGN-SYSTEM.md    (Komponenten-/Designsystem-Dokumentation, Welle A + B)
 REDAKTION-TODO.md   (NICHT auf der Live-Seite verlinkt)
 ```
+
+Seit Welle B (2026-09-14): vollständiges Designsystem (siehe `DESIGN-SYSTEM.md`),
+alle Seiten überarbeitet, keine sichtbaren Klammer-Platzhalter mehr im
+Fließtext, Breadcrumbs auf allen Unterseiten, FAQ-Schema auf allen
+Leistungsseiten.
 
 ## Deploy (GitHub Pages)
 
