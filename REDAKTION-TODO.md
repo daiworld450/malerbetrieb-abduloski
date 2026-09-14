@@ -13,47 +13,63 @@ bzw. `.gallery-grid`/`.project-grid` mit „folgt/folgen in Kürze") auf der
 Seite selbst dargestellt.
 
 ## 1. Fotos (alle Seiten)
-Status: alle Bild-Slots sind CSS-Platzhalter (`.img-placeholder`, Text "Foto
-folgt"), kein externer Platzhalterdienst, keine KI-Bilder, keine Stock-Fotos.
-Jeder Platzhalter trägt im Quelltext direkt darüber einen HTML-Kommentar mit
-dem vorgesehenen Alt-Text und Beispiel-Markup, z. B.:
+**Status seit Welle D (14.09.2026): Stockfotos eingesetzt, echte Projektfotos
+ersetzen sobald vorhanden.** Alle Bild-Slots aus Welle B/C (siehe unten) sind
+jetzt mit lizenzfreien Unsplash-/Pexels-Fotos befüllt (Unsplash License /
+Pexels License, keine Registrierung/Namensnennungspflicht, siehe
+`BILDNACHWEIS.md` für Fotograf/Quelle je Datei). Kein KI-generiertes Bild.
+Bilder liegen lokal in `bilder/` (`hero/`, `leistungen/`, `vorher-nachher/`,
+`referenzen/`, `ueber-uns/`), keine Hotlinks zu Unsplash/Pexels.
 
-```html
-<!-- Foto folgt - spaeter ersetzen durch:
-     <img src="/bilder/…" alt="Fassadenanstrich an einem Wohnhaus in Mülheim an der Ruhr" width="800" height="600" loading="lazy"> -->
-<div class="img-placeholder" ...>...</div>
-```
+**Ausnahme, weiterhin offen:** Die **zwei Portrait-Slots** (Startseite,
+Abschnitt „Ihr Malermeister" und Hero auf `ueber-uns.html`) zeigen eine
+konkrete, namentlich genannte reale Person (Sevdan Abduloski) – dort bleibt
+bewusst der bisherige `.img-placeholder` stehen, kein Stockfoto einer
+fremden Person. Aktion: echtes Portraitfoto vom Inhaber einsammeln, dann
+Platzhalter-Div 1:1 durch `<img>` mit dem vorgegebenen Alt-Text ersetzen.
 
-Betroffene Slots (Stand Redesign Welle B, 2026-09-14; **Welle C, 2026-09-14
-ergänzt**: CTA-Banner-Hintergrundbild):
+**Vorher/Nachher-Bildpaare** (`index.html`, `fassadenanstrich-
+fassadensanierung-muelheim.html`, `innenanstrich-tapezieren-muelheim.html`)
+und die **Projekt-Karten** auf `referenzen.html` sowie die drei Projekt-
+Karten auf `innenanstrich-tapezieren-muelheim.html` zeigen jetzt ebenfalls
+Stockfotos – **ausdrücklich als Beispielbild gekennzeichnet** (Kicker
+„Beispielhaft" bzw. Zusatz „(Beispielbild)" im Alt-Text und im
+`.placeholder-note`-Text „Beispielbild – kein reales Projekt"), keine
+erfundenen Orts-/Kunden-/Datumsangaben. Aktion: sobald ein erstes
+abgeschlossenes, freigegebenes Projekt vorliegt, das jeweilige Stockfoto
+durch das echte Foto ersetzen und Kicker/Überschrift/Text auf die echten
+Angaben umstellen (siehe Punkt 8 und 11 für die Details je Slot).
+
+Betroffene Slots (Stand Redesign Welle B, 2026-09-14; Welle C, 2026-09-14:
+CTA-Banner-Hintergrundbild; **Welle D, 2026-09-14: alle unten genannten
+Slots mit Stockfotos befüllt, außer den zwei Portraits**):
 - `index.html`: Hero-Bild, drei Service-Karten (Innenraum/Fassade/WDVS),
-  Vorher/Nachher-Bildpaar (siehe Punkt 8), Portrait im Block „Ihr
-  Malermeister“, **neu (Welle C): Hintergrundbild im Abschluss-CTA-Banner**
-  (`.cta-banner--image-bg`, aktuell `.cta-banner__bg`-Platzhalter mit
-  sichtbarem „Foto folgt“-Hinweis – sobald ein Foto vorliegt: Inline-Style
-  `style="background-image:url('…')"` auf das `<section class="cta-section
-  cta-banner--image-bg">`-Tag setzen und die `.cta-banner__bg`-Div
-  entfernen, siehe `DESIGN-SYSTEM.md` Abschnitt 11.4)
+  Vorher/Nachher-Bildpaar (siehe Punkt 8, Beispielbild), Portrait im Block
+  „Ihr Malermeister“ (weiterhin offen, siehe oben), Hintergrundbild im
+  Abschluss-CTA-Banner (`.cta-banner--image-bg`, Inline-Style gesetzt)
 - `leistungen/index.html`: Hero-Bild, zehn Leistungs-Karten (Innenraum-,
   Fassade- und WDVS-Gruppe)
-- `leistungen/fassadenanstrich-fassadensanierung-muelheim.html`: Hero-Hintergrundbild
-  (`.page-hero--image-bg`, Inline-Style-Kommentar direkt im Quelltext) +
-  Vorher/Nachher-Bildpaar
+- `leistungen/fassadenanstrich-fassadensanierung-muelheim.html`:
+  Hero-Hintergrundbild (`.page-hero--image-bg`, Inline-Style gesetzt) +
+  Vorher/Nachher-Bildpaar (Beispielbild)
 - `leistungen/waermedaemmung-wdvs-muelheim.html`: Hero-Hintergrundbild
-  (Inline-Style-Kommentar im Quelltext) – der Aufbau-Diagramm-Abschnitt
-  selbst ist reines Inline-SVG und braucht **kein** Foto
+  (Inline-Style gesetzt) – der Aufbau-Diagramm-Abschnitt selbst ist reines
+  Inline-SVG und braucht **kein** Foto
 - `leistungen/innenanstrich-tapezieren-muelheim.html`: Hero-Bild, drei
-  Bereichs-Karten, Vorher/Nachher-Bildpaar, drei Projekt-Platzhalterkarten
-  (siehe Punkt 11)
+  Bereichs-Karten, Vorher/Nachher-Bildpaar (Beispielbild), drei
+  Projekt-Karten (Beispielbild, siehe Punkt 11)
 - `leistungen/fassadenanstrich-essen.html`, `fassadenanstrich-oberhausen.html`,
   `innenanstrich-essen.html`, `innenanstrich-oberhausen.html`: je ein
   Hero-Bild zum jeweiligen Thema/Ort
-- `ueber-uns.html`: Portrait-Bild im Hero + vier Slots in der Galerie „Bilder
-  bei der Arbeit" (siehe Punkt 12)
-- `referenzen.html`: sechs Projekt-Platzhalterkarten (siehe Punkt 11)
+- `ueber-uns.html`: Portrait-Bild im Hero (weiterhin offen, siehe oben) +
+  vier Slots in der Galerie „Bilder bei der Arbeit" (siehe Punkt 12)
+- `referenzen.html`: sechs Projekt-Karten (Beispielbild, siehe Punkt 11)
 
-Aktion: Fotos vom Inhaber einsammeln, in `bilder/` ablegen, Platzhalter-Divs
-1:1 durch `<img>` mit dem vorgegebenen Alt-Text ersetzen.
+Aktion: Echte Fotos vom Inhaber einsammeln, in `bilder/` ablegen, die
+jeweilige Stockfoto-Datei 1:1 durch das echte Foto ersetzen (Dateiname kann
+gleich bleiben oder sinnvoll umbenannt werden), Alt-Text auf die echte
+Beschreibung (Ort, ggf. Leistung) umstellen und den „(Beispielbild)"-Zusatz
+entfernen.
 
 ## 2. Leistungsdetails jenseits von "Maler"
 Nicht bestätigt: gibt es weitere Angebote (Bodenbeschichtung, Gerüstbau,
@@ -112,15 +128,20 @@ und wird zur Falschangabe).
 Betroffen: `index.html`, `leistungen/fassadenanstrich-fassadensanierung-muelheim.html`,
 `leistungen/innenanstrich-tapezieren-muelheim.html` (Komponente
 `BeforeAfterSlider`, Klasse `.before-after`). Der Slider selbst ist jeweils
-voll funktionsfähig (Maus/Touch/Tastatur), zeigt aber noch Platzhalterbilder
-mit den Texten „Vorher-Foto folgt" / „Nachher-Foto folgt". Der Begleittext
-daneben ist **seit Welle B klammerfrei**: Kicker „Projekte", Überschrift
-„Erste(s) …-Projekt(fotos) folgt/folgen in Kürze", darunter ein
-`.placeholder-note`-Satz, der nichts Unbelegtes behauptet. Aktion: Sobald ein
-erstes abgeschlossenes Projekt mit Fotoerlaubnis des Kunden vorliegt, die
-`.img-placeholder`-Divs durch echte Vorher-/Nachher-Fotos ersetzen (Alt-Text
-entsprechend anpassen) und Kicker/Überschrift/Text durch die echten Angaben
-ersetzen – keine Fantasieprojekte eintragen.
+voll funktionsfähig (Maus/Touch/Tastatur). **Seit Welle D (14.09.2026)**
+zeigt jede Seite ein thematisch passendes Stockfoto-Paar (verwitterte vs.
+frisch verputzte Fassade auf `index.html` und der Fassadenseite; abgenutzte
+vs. frisch gestrichene Wand auf der Innenraum-Seite, siehe
+`BILDNACHWEIS.md`) – **ausdrücklich als Beispielbild markiert**: Kicker
+„Beispielhaft", Überschrift „So kann eine/ein …aussehen", darunter ein
+`.placeholder-note`-Satz „Beispielbild – kein reales Projekt. Sobald ein
+abgeschlossenes Projekt mit Fotoerlaubnis vorliegt, ersetzt eine ehrliche
+Vorher-/Nachher-Ansicht dieses Beispiel." Aktion: Sobald ein erstes
+abgeschlossenes Projekt mit Fotoerlaubnis des Kunden vorliegt, die
+Stockfotos durch echte Vorher-/Nachher-Fotos ersetzen (Alt-Text entsprechend
+anpassen, „(Beispielbild, kein reales Projekt)"-Zusatz entfernen) und
+Kicker/Überschrift/Text durch die echten Angaben ersetzen – keine
+Fantasieprojekte eintragen.
 
 ## 9. (entfällt seit Welle B)
 Die frühere Synchronisations-Notiz zwischen `index.html` und `ueber-uns.html`
@@ -133,25 +154,32 @@ sich um eine bewusst einfache, selbst gezeichnete, schematische Darstellung
 (keine echte Kartengrafik, kein Kartendienst mit Kosten) – rein dekorativ,
 `aria-hidden="true"`. Kein Redaktionsbedarf, außer die Orte ändern sich.
 
-## 11. Referenzen-Grid und Projekt-Platzhalterkarten (neu, Welle B)
+## 11. Referenzen-Grid und Projekt-Karten (neu, Welle B; Fotos Welle D)
 Dateien: `referenzen.html` (sechs Karten, Filter Alle/Innenraum/Fassade/WDVS),
 `leistungen/innenanstrich-tapezieren-muelheim.html` (drei Karten im Abschnitt
-„Aktuelle Innenraum-Projekte"). Alle Karten zeigen bewusst nur eine neutrale
-Kategorie-Bezeichnung („Innenraum-Projekt" / „Fassaden-Projekt" /
-„WDVS-Projekt") plus `.placeholder-note` „Projekte folgen in Kürze" – kein
-erfundener Projektname, Ort oder Datum. Aktion: Sobald abgeschlossene,
-freigegebene Projekte vorliegen, Karten einzeln durch echte Fotos, Titel
-(z. B. Ort · Leistung) und Kurzbeschreibung ersetzen. Die vier lokalen
+„So können Innenraum-Projekte aussehen"). **Seit Welle D (14.09.2026)**
+zeigt jede Karte ein zur Kategorie passendes Stockfoto (siehe
+`BILDNACHWEIS.md`) plus weiterhin nur eine neutrale Kategorie-Bezeichnung
+(„Innenraum-Projekt" / „Fassaden-Projekt" / „WDVS-Projekt") und den
+`.placeholder-note`-Hinweis „Beispielbild – kein reales Projekt. Echte
+Referenzen folgen." – kein erfundener Projektname, Ort oder Datum. Die
+Referenzen-Hero-Einleitung wurde entsprechend ergänzt (Hinweis auf
+gekennzeichnete Beispielbilder). Aktion: Sobald abgeschlossene, freigegebene
+Projekte vorliegen, Karten einzeln durch echte Fotos, Titel (z. B. Ort ·
+Leistung) und Kurzbeschreibung ersetzen, „Beispielbild"-Hinweis entfernen.
+Die vier lokalen
 Spoke-Seiten (`fassadenanstrich-essen.html`, `fassadenanstrich-oberhausen.html`,
 `innenanstrich-essen.html`, `innenanstrich-oberhausen.html`) haben je einen
 kompakten `.placeholder-note`-Absatz „Projekte in {Stadt}" mit Verweis auf
 `referenzen.html` statt einer eigenen Kartenreihe – bewusst kompakter
 gehalten, siehe Anlage des Auftrags.
 
-## 12. Bilder-Galerie auf ueber-uns.html (neu, Welle B)
+## 12. Bilder-Galerie auf ueber-uns.html (neu, Welle B; Fotos Welle D)
 Datei: `ueber-uns.html`, Abschnitt „Bilder bei der Arbeit" (`.gallery-grid`,
-vier `.img-placeholder`-Slots mit Alt-Text-Kommentaren). Kein Redaktionsbedarf
-außer den eigentlichen Fotos (siehe Punkt 1).
+vier Slots). **Seit Welle D (14.09.2026)** mit vier Stockfotos befüllt
+(Renovierung/Vorbereitung, Werkzeug, Untergrundarbeit, Lackierarbeit – siehe
+`BILDNACHWEIS.md`). Kein Redaktionsbedarf außer dem Austausch gegen echte
+Fotos vom Betrieb, sobald vorhanden (siehe Punkt 1).
 
 ## 13. WDVS-Aufbau-Diagramm (neu, Welle B)
 Datei: `leistungen/waermedaemmung-wdvs-muelheim.html`. Reines, selbst
