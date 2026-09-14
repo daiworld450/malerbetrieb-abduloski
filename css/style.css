@@ -418,6 +418,22 @@ main { display: block; }
    Höhe) verstecken das Icon automatisch, wenn kein Platz ist. */
 .before-after__side .img-placeholder::before { display: none; }
 
+/* Welle-D-Fix (2026-09-14): echte <img>-Tags (Stockfotos) brauchen dieselbe
+   Groessen-Eindaemmung, die vorher nur die .img-placeholder-Divs hatten
+   (die per Flex-Inhalt automatisch klein blieben). Ohne aspect-ratio +
+   object-fit blaeht das natuerliche Seitenverhaeltnis jedes Fotos die
+   jeweilige Sektion auf (beobachtet: Hero-Bild mit 1280x1600px zog die
+   ganze Startseite in die Laenge und schob die Headline aus dem
+   sichtbaren Bereich). */
+.hero-media { aspect-ratio: 4 / 5; border-radius: var(--radius-md); overflow: hidden; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.page-hero-grid > div:last-child { aspect-ratio: 4 / 3; border-radius: var(--radius-md); overflow: hidden; }
+.page-hero-grid > div:last-child img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.service-card__media img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+.project-card__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.gallery-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: var(--radius-md); }
+.before-after__side img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
 /* -------------------- TrustBar -------------------- */
 .trust-bar {
   border-top: 1px solid var(--color-border);
