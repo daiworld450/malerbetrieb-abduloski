@@ -207,3 +207,21 @@ generische Farbfamilien-Namen** zur Veranschaulichung der Bandbreite – keine
 echten Produkt- oder Herstellerfarbtöne, keine erfundene Marke. Kein
 Redaktionsbedarf, außer es sollen künftig reale Farbsysteme/Hersteller
 genannt werden.
+
+## 16. Design-Audit 2026-10 (was sich geändert hat, was offen bleibt)
+- **Ausgeblendet (HTML-Kommentare `TODO (Design-Audit 2026-10)`, Code bleibt):**
+  Vorher/Nachher-Slider (index, Fassade, Innenraum), Beispiel-Projektkarten
+  (referenzen, Innenraum-Seite), Galerie „Bilder bei der Arbeit" (ueber-uns,
+  weil Stockfotos als Arbeitsfotos des Betriebs gelesen würden). Wieder
+  einkommentieren, sobald echte Fotos mit Fotoerlaubnis vorliegen (Punkte 8, 11, 12).
+- **Portrait/Zitat:** Inhaberblock (index) und Hero (ueber-uns) sind reine
+  Text-/Signaturflächen; Portrait-Slots und Zitat-Platzhalter stehen als
+  Kommentar im HTML (Punkt 5, Punkt 1 „Ausnahme").
+- **Beispielbild-Hinweis:** nur noch ein Satz im Footer aller Seiten, nicht pro Bild.
+- **Formular:** Pflichtfelder Projektart, Name, Telefon, Ort, Nachricht (E-Mail optional),
+  Honeypot `_honey`, Erfolgsmeldung über `?gesendet=1` (FormSubmit-Parameter `_next`,
+  wird per JS aus der aktuellen URL gesetzt). Das Versprechen „Rückmeldung innerhalb
+  von 24 Stunden" wurde entfernt (nicht belegt). **FormSubmit-Aktivierung (Punkt 6)
+  bleibt offen.**
+- **Schriften** liegen jetzt selbst gehostet in `fonts/` (OFL), kein Google-Aufruf mehr.
+- Bilder: WebP-Varianten neben den JPGs (`<picture>`), Original-JPGs bleiben.

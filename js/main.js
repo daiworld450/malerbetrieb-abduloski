@@ -9,6 +9,7 @@
  *      mehrere Instanzen pro Seite (siehe DESIGN-SYSTEM.md für die API)
  *   4) Kategorie-Auswahl im Kontaktformular (Welle B)
  *   5) Filter-Tabs auf referenzen.html (Welle B)
+ *   6) Kontaktformular: Prüfung, Fehlertext, Erfolgsmeldung (Design-Audit 2026-10)
  */
 (function () {
   "use strict";
@@ -220,4 +221,60 @@
   }
 
   document.querySelectorAll("[data-filter-tabs]").forEach(initFilterTabs);
+  /* ---------- 6) Kontaktformular (Design-Audit 2026-10) ----------
+   * Natives POST an FormSubmit bleibt der Versandweg. Das Skript prüft nur die
+   * Pflichtfelder vorab (mit Fehlertext + Telefonnummer als Ausweg) und zeigt
+   * nach der Rückleitung (?gesendet=1) eine Erfolgsmeldung (role="status").
+   */
+  var form = document.getElementById("anfrage-form");
+  if (form) {
+    var statusBox = document.getElementById("form-status");
+    var errorBox = document.getElementById("form-error");
+    var phoneHtml = ' Oder rufen Sie direkt an: <a href="tel:+4915731464675">(01573) 1464675</a>.';
+
+    if (/[?&]gesendet=1/.test(window.location.search) && statusBox) {
+      statusBox.textContent = "Danke, Ihre Anfrage wurde abgeschickt. Sevdan Abduloski meldet sich persönlich bei Ihnen.";
+      statusBox.setAttribute("tabindex", "-1");
+      statusBox.focus();
+    }
+
+    form.addEventListener("submit", function (event) {
+      var invalid = [];
+      form.querySelectorAll("[required]").forEach(function (field) {
+        var ok;
+        if (field.type === "radio") {
+          ok = !!form.querySelector('input[name="' + field.name + '"]:checked');
+        } else {
+          ok = field.value.trim() !== "";
+        }
+        field.setAttribute("aria-invalid", ok ? "false" : "true");
+        if (!ok) invalid.push(field);
+      });
+      var mail = form.querySelector("#email");
+      if (mail && mail.value.trim() !== "" && !mail.checkValidity()) {
+        mail.setAttribute("aria-invalid", "true");
+        invalid.push(mail);
+      } else if (mail) {
+        mail.setAttribute("aria-invalid", "false");
+      }
+
+      if (invalid.length) {
+        event.preventDefault();
+        if (errorBox) {
+          errorBox.innerHTML = "Bitte ergänzen Sie die markierten Felder (Art des Projekts, Name, Telefon, Ort, Nachricht; E-Mail nur bei gültiger Adresse)." + phoneHtml;
+        }
+        var first = invalid[0];
+        if (first.focus) first.focus();
+        return;
+      }
+      if (errorBox) errorBox.innerHTML = "";
+      if (/^https?:$/.test(window.location.protocol) && !form.querySelector('[name="_next"]')) {
+        var next = document.createElement("input");
+        next.type = "hidden";
+        next.name = "_next";
+        next.value = window.location.origin + window.location.pathname + "?gesendet=1";
+        form.appendChild(next);
+      }
+    });
+  }
 })();

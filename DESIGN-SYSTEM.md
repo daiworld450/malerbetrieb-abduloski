@@ -750,3 +750,11 @@ verschiedene Slogans zu führen.
   44px-Kreis mit sichtbarem Links-Rechts-Pfeil-Icon (kein reiner Strich).
 - **Footer-Tagline**: existierte bereits wortgleich zur neuen
   `.brand-tagline` (siehe 11.7) – nicht dupliziert, nur abgeglichen.
+
+
+## 12. Design-Audit 2026-10 (ersetzt Teile oben)
+- **Schriften selbst gehostet** (`fonts/`, @font-face am Anfang von `css/style.css`); der Google-Fonts-Block in Abschnitt 2 gilt nicht mehr.
+- **Kontrast:** Button-Text auf Akzent ist `--color-ink` (5,1:1), Hover `--color-accent-hover`. `--color-accent-dark` ist jetzt `#A34A1B` (5,2:1 auf Papier) und gilt für Akzent-Text/Links auf hellem Grund.
+- **Kicker/Eyebrows entfernt** (Craft-Floor-Ban), `.kicker` existiert nicht mehr.
+- Mobil: Text + CTA vor dem Hero-Bild; Touch-Ziele mindestens 44 px; Skip-Link; `prefers-reduced-motion` respektiert.
+- Footer-Überschriften sind `p.footer-heading` (keine H2 mehr).
