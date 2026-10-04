@@ -3,11 +3,13 @@
 <head>
 <!-- SITE_BASE_URL: https://daiworld450.github.io/malerbetrieb-abduloski/ (bei eigener Domain hier + in canonical/og:url ueberall ersetzen) -->
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="theme-color" content="#EDEEE9">
+<meta name="color-scheme" content="light">
 <title>Maler Mülheim an der Ruhr | Sevdan Abduloski Malerbetrieb</title>
 <meta name="description" content="Malerbetrieb in Mülheim an der Ruhr: Fassadenanstrich, Innenanstrich, Tapezieren und Lackierarbeiten. Persönlicher Ansprechpartner in Mülheim, Essen und Oberhausen.">
 <link rel="canonical" href="https://daiworld450.github.io/malerbetrieb-abduloski/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%2317191A%27/%3E%3Ctext x=%2732%27 y=%2743%27 font-size=%2732%27 font-family=%27Arial,sans-serif%27 font-weight=%27700%27 fill=%27%23D86B32%27 text-anchor=%27middle%27%3ES%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%2311161C%27/%3E%3Ctext x=%2732%27 y=%2743%27 font-size=%2732%27 font-family=%27Arial,sans-serif%27 font-weight=%27700%27 fill=%27%23F4B400%27 text-anchor=%27middle%27%3ES%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Maler Mülheim an der Ruhr | Sevdan Abduloski Malerbetrieb">
 <meta property="og:description" content="Malerbetrieb in Mülheim an der Ruhr: Fassadenanstrich, Innenanstrich, Tapezieren und Lackierarbeiten. Persönlicher Ansprechpartner in Mülheim, Essen und Oberhausen.">
@@ -17,7 +19,9 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maler Mülheim an der Ruhr | Sevdan Abduloski Malerbetrieb">
 <meta name="twitter:description" content="Malerbetrieb in Mülheim an der Ruhr: Fassadenanstrich, Innenanstrich, Tapezieren und Lackierarbeiten. Persönlicher Ansprechpartner in Mülheim, Essen und Oberhausen.">
-<link rel="preload" href="fonts/manrope-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/big-shoulders-display-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className+=" js"</script>
 <link rel="stylesheet" href="css/style.css">
 <script type="application/ld+json">
 {
@@ -44,7 +48,7 @@
 }
 </script>
 </head>
-<body>
+<body data-rolle="wand">
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 <header class="site-header">
   <div class="container header-inner">
@@ -54,7 +58,7 @@
     </a>
     <nav class="main-nav" id="main-nav">
       <ul>
-        <li><a href="index.html" class="is-active">Startseite</a></li>
+        <li><a href="index.html" class="is-active" aria-current="page">Startseite</a></li>
         <li class="has-dropdown">
           <a href="leistungen/index.html" class="dropdown-toggle">Leistungen</a>
           <button type="button" class="dropdown-caret" aria-expanded="false" aria-controls="leistungen-dropdown" aria-label="Leistungen-Unterseiten anzeigen">
@@ -85,85 +89,94 @@
 </header>
 <main id="main">
 
-<!-- 1) Hero -->
-<section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <h1>Ihr Malerbetrieb in Mülheim an der Ruhr.</h1>
-      <p class="hero-lead">Sevdan Abduloski, Malermeister aus Mülheim-Heißen: Fassadenanstrich und Wärmedämmung, Innenanstrich, Tapezieren und Lackierarbeiten – auch in Essen und Oberhausen.</p>
-      <div class="btn-row">
-        <a href="kontakt.html" class="btn btn-accent btn-lg">Projekt anfragen</a>
-        <a href="tel:+4915731464675" class="btn btn-outline btn-lg"><svg class="icon-phone" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Jetzt anrufen</a>
-      </div>
+<!-- 1) Hero: Wand mit Farbprobe -->
+<section class="hero" aria-labelledby="hero-titel">
+  <div class="hero__copy">
+    <h1 id="hero-titel">Ihr Malerbetrieb in Mülheim an der Ruhr.</h1>
+    <p class="hero__lead">Sevdan Abduloski, Malermeister aus Mülheim-Heißen. Fassade, Dämmung, Innenanstrich, Tapezieren und Lackieren, auch in Essen und Oberhausen.</p>
+    <div class="btn-row">
+      <a href="kontakt.html" class="btn btn-accent btn-lg">Projekt anfragen</a>
+      <a href="tel:+4915731464675" class="btn btn-outline btn-lg"><svg class="icon-phone" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Jetzt anrufen</a>
     </div>
-    <div class="hero-media">
-      <picture><source type="image/webp" srcset="bilder/hero/hero-malerarbeiten.webp"><img src="bilder/hero/hero-malerarbeiten.jpg" alt="Malerarbeiten: Farbroller beim Streichen einer Wand" width="800" height="1000" fetchpriority="high" loading="eager" decoding="async"></picture>
+  </div>
+  <div class="farbprobe" data-farbprobe>
+    <div class="farbprobe__wall" aria-hidden="true"><span class="farbprobe__base"></span><span class="farbprobe__roller"></span></div>
+    <span class="tape-label farbprobe__label">Farbprobe</span>
+    <div class="farbprobe__chips" role="group" aria-label="Beispiel-Farbtöne">
+      <button type="button" class="chip" style="--chip:#F2EEDF;--i:0" data-farbe="#F2EEDF" aria-pressed="false"><span class="chip__swatch"></span><span class="chip__name">Warmweiß</span></button>
+      <button type="button" class="chip" style="--chip:#CDB48E;--i:1" data-farbe="#CDB48E" aria-pressed="false"><span class="chip__swatch"></span><span class="chip__name">Sandstein</span></button>
+      <button type="button" class="chip" style="--chip:#9DB39A;--i:2" data-farbe="#9DB39A" aria-pressed="false"><span class="chip__swatch"></span><span class="chip__name">Salbeigrün</span></button>
+      <button type="button" class="chip" style="--chip:#8AA7BC;--i:3" data-farbe="#8AA7BC" aria-pressed="true"><span class="chip__swatch"></span><span class="chip__name">Taubenblau</span></button>
+      <button type="button" class="chip" style="--chip:#B8553A;--i:4" data-farbe="#B8553A" aria-pressed="false"><span class="chip__swatch"></span><span class="chip__name">Terrakotta</span></button>
+      <button type="button" class="chip" style="--chip:#2F3E3A;--i:5" data-farbe="#2F3E3A" aria-pressed="false"><span class="chip__swatch"></span><span class="chip__name">Anthrazitgrün</span></button>
     </div>
+    <p class="farbprobe__hint">Tippen Sie auf einen Ton, die Fläche wird umgestrichen. Beispiel-Farbtöne: die Auswahl besprechen wir gemeinsam.</p>
+    <span class="sr-only" role="status" aria-live="polite" data-farbprobe-status></span>
   </div>
 </section>
 
 <!-- 2) Auf einen Blick: nur belegbare Fakten -->
-<section class="trust-bar" aria-label="Auf einen Blick">
-  <div class="container trust-grid">
-    <div class="trust-item">
-      <span class="trust-item__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
-      <p class="trust-item__title">Sitz in Mülheim-Heißen</p>
-      <p class="trust-item__subtext">Fünter Weg 37, 45472 Mülheim an der Ruhr</p>
+<section class="fakten" aria-label="Auf einen Blick">
+  <div class="container fakten__grid">
+    <div class="fakten__item">
+      <p class="fakten__title">Sitz in Mülheim-Heißen</p>
+      <p class="fakten__text">Fünter Weg 37, 45472 Mülheim an der Ruhr</p>
     </div>
-    <div class="trust-item">
-      <span class="trust-item__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.6-3.7 3.4-6 7-6s6.4 2.3 7 6"/></svg></span>
-      <p class="trust-item__title">Malermeister als Ansprechpartner</p>
-      <p class="trust-item__subtext">Sevdan Abduloski führt den Betrieb persönlich</p>
+    <div class="fakten__item">
+      <p class="fakten__title">Malermeister als Ansprechpartner</p>
+      <p class="fakten__text">Sevdan Abduloski führt den Betrieb persönlich</p>
     </div>
-    <div class="trust-item">
-      <span class="trust-item__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13M15 6.5v13"/></svg></span>
-      <p class="trust-item__title">Einsatzgebiet</p>
-      <p class="trust-item__subtext">Mülheim, Essen und Oberhausen</p>
+    <div class="fakten__item">
+      <p class="fakten__title">Einsatzgebiet</p>
+      <p class="fakten__text">Mülheim, Essen und Oberhausen</p>
     </div>
   </div>
 </section>
 
-<!-- 3) Unsere Leistungen (ServiceCard) -->
-<section class="section">
+<!-- 3) Schwerpunkte als Farbfächer -->
+<section class="section" aria-labelledby="leistungen-titel">
   <div class="container">
-    <h2>Drei Schwerpunkte, ein Ansprechpartner</h2>
-    <div class="service-grid">
-      <a class="service-card" href="leistungen/innenanstrich-tapezieren-muelheim.html">
-        <div class="service-card__media">
-          <picture><source type="image/webp" srcset="bilder/leistungen/innenanstrich-wand.webp"><img src="bilder/leistungen/innenanstrich-wand.jpg" alt="Innenanstrich und Tapezierarbeiten in einer Wohnung" width="800" height="600" loading="lazy"></picture>
-        </div>
-        <div class="service-card__body">
-          <h3>Innenraum</h3>
-          <p>Innenanstrich, Tapezieren sowie Lackierarbeiten für Holz, Fenster und Türen.</p>
-          <span class="link-arrow">Mehr erfahren →</span>
-        </div>
-      </a>
-      <a class="service-card" href="leistungen/fassadenanstrich-fassadensanierung-muelheim.html">
-        <div class="service-card__media">
-          <picture><source type="image/webp" srcset="bilder/leistungen/fassadenanstrich.webp"><img src="bilder/leistungen/fassadenanstrich.jpg" alt="Fassadenanstrich an einem Wohnhaus" width="800" height="600" loading="lazy"></picture>
-        </div>
-        <div class="service-card__body">
-          <h3>Fassade</h3>
+    <h2 id="leistungen-titel">Drei Schwerpunkte, ein Ansprechpartner</h2>
+    <div class="fan">
+      <a class="fan__strip fan__strip--fassade" href="leistungen/fassadenanstrich-fassadensanierung-muelheim.html" aria-labelledby="fan-fassade">
+        <div class="fan__body">
+          <h3 id="fan-fassade">Fassade</h3>
           <p>Fassadenanstrich, Fassadensanierung und Untergrundvorbereitung für einen dauerhaften Witterungsschutz.</p>
-          <span class="link-arrow">Mehr erfahren →</span>
+          <span class="link-arrow">Mehr erfahren</span>
         </div>
+        <figure class="muster">
+          <picture><source type="image/webp" srcset="bilder/leistungen/fassadenanstrich.webp"><img src="bilder/leistungen/fassadenanstrich.jpg" alt="Fassadenanstrich an einem Wohnhaus" width="800" height="600" loading="lazy"></picture>
+          <figcaption class="muster__note">Beispielfoto</figcaption>
+        </figure>
       </a>
-      <a class="service-card" href="leistungen/waermedaemmung-wdvs-muelheim.html">
-        <div class="service-card__media">
+      <a class="fan__strip fan__strip--wdvs" href="leistungen/waermedaemmung-wdvs-muelheim.html" aria-labelledby="fan-wdvs">
+        <div class="fan__body">
+          <h3 id="fan-wdvs">Wärmedämmung (WDVS)</h3>
+          <p>Dämmung und Fassadenanstrich aus einer Hand: Optik und Energieeffizienz in einem Arbeitsgang.</p>
+          <span class="link-arrow">Mehr erfahren</span>
+        </div>
+        <figure class="muster">
           <picture><source type="image/webp" srcset="bilder/leistungen/wdvs.webp"><img src="bilder/leistungen/wdvs.jpg" alt="Wärmedämmverbundsystem (WDVS) an einer Fassade" width="800" height="600" loading="lazy"></picture>
+          <figcaption class="muster__note">Beispielfoto</figcaption>
+        </figure>
+      </a>
+      <a class="fan__strip fan__strip--innen" href="leistungen/innenanstrich-tapezieren-muelheim.html" aria-labelledby="fan-innen">
+        <div class="fan__body">
+          <h3 id="fan-innen">Innenraum</h3>
+          <p>Innenanstrich, Tapezieren sowie Lackierarbeiten für Holz, Fenster und Türen.</p>
+          <span class="link-arrow">Mehr erfahren</span>
         </div>
-        <div class="service-card__body">
-          <h3>Wärmedämmung (WDVS)</h3>
-          <p>Dämmung und Fassadenanstrich aus einer Hand – Optik und Energieeffizienz in einem Arbeitsgang.</p>
-          <span class="link-arrow">Mehr erfahren →</span>
-        </div>
+        <figure class="muster">
+          <picture><source type="image/webp" srcset="bilder/leistungen/innenanstrich-wand.webp"><img src="bilder/leistungen/innenanstrich-wand.jpg" alt="Innenanstrich und Tapezierarbeiten in einer Wohnung" width="800" height="600" loading="lazy"></picture>
+          <figcaption class="muster__note">Beispielfoto</figcaption>
+        </figure>
       </a>
     </div>
   </div>
 </section>
 
 <!-- 4) Vorher/Nachher (BeforeAfterSlider) -->
-<!-- TODO (Design-Audit 2026-10): Vorher/Nachher-Slider ausgeblendet, bis echte Projektfotos mit Fotoerlaubnis vorliegen (REDAKTION-TODO.md Punkt 8). JS in js/main.js bleibt aktiv, Block wieder einkommentieren.
+<!-- TODO (Design-Audit 2026-10): Vorher/Nachher-Slider ausgeblendet, bis echte Projektfotos mit Fotoerlaubnis vorliegen (REDAKTION-TODO.md Punkt 8). JS in js/main.js und CSS in css/style.css bleiben aktiv, Block wieder einkommentieren.
 <section class="section section-alt">
   <div class="container">
     <h2>Vorher. Nachher. Ein echter Unterschied.</h2>
@@ -184,7 +197,6 @@
         </div>
       </div>
       <div class="before-after__meta">
-        
         <h3>So kann eine Sanierung aussehen</h3>
         <p class="placeholder-note">Beispielbild – kein reales Projekt. Sobald die ersten echten Projektfotos mit
         Einverständnis der Kundschaft vorliegen, ersetzt eine ehrliche Vorher-/Nachher-Ansicht dieses Beispiel.</p>
@@ -195,102 +207,89 @@
 </section>
 -->
 
-<!-- 5) ProcessSteps -->
-<section class="section">
+<!-- 5) Ablauf als Zollstock -->
+<section class="section section--tinte" aria-labelledby="ablauf-titel">
   <div class="container">
-    <h2>Aus Ideen werden Ergebnisse – in 4 Schritten</h2>
-    <div class="process-steps">
-      <div class="process-step">
-        <span class="process-step__num">1</span>
-        <p class="process-step__title">Beratung</p>
-        <p class="process-step__text">Erstkontakt per Telefon, WhatsApp oder Formular – kurz schildern, worum es geht.</p>
+    <h2 id="ablauf-titel">Aus Ideen werden Ergebnisse. In vier Schritten.</h2>
+    <ol class="zollstock">
+      <li class="zollstock__segment">
+        <span class="zollstock__num" aria-hidden="true">1</span>
+        <h3>Beratung</h3>
+        <p>Erstkontakt per Telefon, WhatsApp oder Formular. Kurz schildern, worum es geht.</p>
+      </li>
+      <li class="zollstock__segment">
+        <span class="zollstock__num" aria-hidden="true">2</span>
+        <h3>Planung</h3>
+        <p>Vor-Ort-Termin oder Einschätzung anhand von Fotos, danach ein klares Angebot.</p>
+      </li>
+      <li class="zollstock__segment">
+        <span class="zollstock__num" aria-hidden="true">3</span>
+        <h3>Umsetzung</h3>
+        <p>Saubere, fachgerechte Ausführung, von der Untergrundvorbereitung bis zum letzten Anstrich.</p>
+      </li>
+      <li class="zollstock__segment">
+        <span class="zollstock__num" aria-hidden="true">4</span>
+        <h3>Ergebnis</h3>
+        <p>Übergabe des fertigen Ergebnisses, persönlich und mit direktem Ansprechpartner.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6) Ihr Malermeister: reine Text-/Signaturfläche, bis ein echtes Portrait vorliegt -->
+<section class="section meister" aria-labelledby="meister-titel">
+  <div class="container meister__grid">
+    <div class="meister__id">
+      <h2 id="meister-titel" class="meister__name">Sevdan<br>Abduloski</h2>
+      <p class="meister__role"><span class="tape-label">Inhaber &amp; Malermeister</span></p>
+    </div>
+    <div class="meister__text">
+      <p>Sevdan Abduloski ist Malermeister und führt den Betrieb persönlich, mit Sitz in Mülheim an der Ruhr (Heißen). Anfragen werden persönlich beantwortet, ein Angebot entsteht nach einem Vor-Ort-Termin oder anhand von Fotos.</p>
+      <div class="btn-row">
+        <a href="tel:+4915731464675" class="btn btn-accent"><svg class="icon-phone" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (01573) 1464675</a>
+        <a href="kontakt.html" class="btn btn-outline">Projekt anfragen</a>
       </div>
-      <div class="process-step">
-        <span class="process-step__num">2</span>
-        <p class="process-step__title">Planung</p>
-        <p class="process-step__text">Vor-Ort-Termin oder Einschätzung anhand von Fotos, danach ein klares Angebot.</p>
-      </div>
-      <div class="process-step">
-        <span class="process-step__num">3</span>
-        <p class="process-step__title">Umsetzung</p>
-        <p class="process-step__text">Saubere, fachgerechte Ausführung – von der Untergrundvorbereitung bis zum letzten Anstrich.</p>
-      </div>
-      <div class="process-step">
-        <span class="process-step__num">4</span>
-        <p class="process-step__title">Ergebnis</p>
-        <p class="process-step__text">Übergabe des fertigen Ergebnisses, persönlich und mit direktem Ansprechpartner.</p>
-      </div>
+      <!-- TODO: Portrait (3:4) sobald ein echtes Foto von Sevdan Abduloski vorliegt:
+           <picture><source type="image/webp" srcset="bilder/ueber-uns/inhaber.webp"><img src="bilder/ueber-uns/inhaber.jpg" alt="Sevdan Abduloski, Malermeister und Inhaber des Malerbetriebs" width="800" height="1067" loading="lazy"></picture>
+           TODO: Inhaber-Zitat (REDAKTION-TODO.md Punkt 5) hier ergänzen, sobald ein echtes Statement vorliegt. -->
     </div>
   </div>
 </section>
 
-<!-- 6) Ihr Malermeister (Owner-Block) -->
-<!-- Text-/Signaturfläche ohne Foto, bis ein echtes Portrait vorliegt. -->
-<section class="section owner-section">
+<!-- 7) Unsere Region als Musterfelder -->
+<section class="section section-alt" aria-labelledby="region-titel">
   <div class="container">
-    <div class="owner-block">
-      <div class="owner-block__id">
-        <h2>Ihr Malermeister</h2>
-        <p class="owner-block__signature">Sevdan Abduloski</p>
-        <p class="owner-block__role">Inhaber &amp; Malermeister</p>
+    <h2 id="region-titel">Unsere Region: für Sie vor Ort</h2>
+    <p class="section-lead">Der Betriebssitz liegt in Mülheim-Heißen. Aufträge werden regelmäßig in Mülheim an der Ruhr, Essen und Oberhausen ausgeführt. Für Duisburg ist eine Ausführung auf Anfrage möglich.</p>
+    <div class="region-patches">
+      <div class="patch patch--sitz">
+        <h3>Mülheim an der Ruhr</h3>
+        <p>Betriebssitz in Mülheim-Heißen, kurze Wege im gesamten Stadtgebiet.</p>
       </div>
-      <div class="owner-block__text">
-        <p class="owner-block__note">Sevdan Abduloski ist Malermeister und führt den Betrieb persönlich – mit Sitz
-        in Mülheim an der Ruhr (Heißen). Anfragen werden persönlich beantwortet, ein Angebot entsteht nach einem
-        Vor-Ort-Termin oder anhand von Fotos.</p>
-        <div class="btn-row">
-          <a href="tel:+4915731464675" class="btn btn-accent"><svg class="icon-phone" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (01573) 1464675</a>
-          <a href="kontakt.html" class="btn btn-outline-light">Projekt anfragen</a>
-        </div>
-        <!-- TODO: Portrait-Slot (3:4) sobald ein echtes Foto von Sevdan Abduloski vorliegt:
-             <picture><source type="image/webp" srcset="bilder/ueber-uns/inhaber.webp"><img src="bilder/ueber-uns/inhaber.jpg" alt="Sevdan Abduloski, Malermeister und Inhaber des Malerbetriebs" width="800" height="1067" loading="lazy"></picture>
-             TODO: Inhaber-Zitat (REDAKTION-TODO.md Punkt 5) hier ergänzen, sobald ein echtes Statement vorliegt. -->
+      <div class="patch patch--sandstein">
+        <h3>Essen</h3>
+        <p>Grenznahe Stadtteile wie Frohnhausen, Altendorf und Borbeck ohne lange Anfahrt.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- 7) Unsere Region -->
-<section class="section">
-  <div class="container">
-    <h2>Unsere Region – für Sie vor Ort</h2>
-    <p class="section-lead">Der Betriebssitz liegt in Mülheim-Heißen. Aufträge werden regelmäßig in
-    Mülheim an der Ruhr, Essen und Oberhausen ausgeführt. Für Duisburg ist eine Ausführung auf Anfrage möglich.</p>
-    <!-- Welle C: einfache Liste direkt neben der Regionsgrafik (Grid, 2
-         Spalten) statt Karten-Grid mit separater Grafik darunter. -->
-    <div class="region-layout">
-      <ul class="region-list">
-        <li><strong>Mülheim an der Ruhr</strong><span>Betriebssitz in Mülheim-Heißen – kurze Wege im gesamten Stadtgebiet.</span></li>
-        <li><strong>Essen</strong><span>Grenznahe Stadtteile wie Frohnhausen, Altendorf und Borbeck ohne lange Anfahrt.</span></li>
-        <li><strong>Oberhausen</strong><span>Gut erreichbar über die A40, kurze Anfahrt aus Mülheim-Heißen.</span></li>
-        <li><strong>Duisburg <em>(auf Anfrage)</em></strong><span>Ausführung nach Absprache möglich.</span></li>
-      </ul>
-      <div class="region-map" aria-hidden="true">
-        <svg viewBox="0 0 320 440" xmlns="http://www.w3.org/2000/svg">
-          <line x1="160" y1="45" x2="160" y2="400" stroke="var(--color-border)" stroke-width="2"/>
-          <circle cx="160" cy="45" r="7" fill="none" stroke="var(--color-text-muted)" stroke-width="2" stroke-dasharray="3 3"/>
-          <text x="195" y="50" text-anchor="start" font-family="Manrope, sans-serif" font-size="15" fill="var(--color-text-muted)">Duisburg</text>
-          <circle cx="160" cy="165" r="8" fill="var(--color-white)" stroke="var(--color-ink)" stroke-width="2"/>
-          <text x="195" y="170" text-anchor="start" font-family="Manrope, sans-serif" font-size="15" font-weight="600" fill="var(--color-ink)">Oberhausen</text>
-          <circle cx="160" cy="285" r="11" fill="var(--color-accent)"/>
-          <text x="126" y="280" text-anchor="end" font-family="Manrope, sans-serif" font-size="12" font-weight="700" letter-spacing="0.06em" fill="var(--color-accent-dark)">BETRIEBSSITZ</text>
-          <text x="195" y="291" text-anchor="start" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="var(--color-ink)">Mülheim a. d. Ruhr</text>
-          <circle cx="160" cy="400" r="8" fill="var(--color-white)" stroke="var(--color-ink)" stroke-width="2"/>
-          <text x="195" y="405" text-anchor="start" font-family="Manrope, sans-serif" font-size="15" font-weight="600" fill="var(--color-ink)">Essen</text>
-        </svg>
+      <div class="patch patch--taube">
+        <h3>Oberhausen</h3>
+        <p>Gut erreichbar über die A40, kurze Anfahrt aus Mülheim-Heißen.</p>
+      </div>
+      <div class="patch patch--offen">
+        <h3>Duisburg, auf Anfrage</h3>
+        <p>Ausführung nach Absprache möglich.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 8) Abschluss-CTA -->
-<section class="section cta-section cta-banner--image-bg" style="background-image:url('bilder/hero/cta-banner.webp')">
+<section class="section cta-section" aria-labelledby="cta-titel">
   <div class="container cta-box">
-    <h2>Lassen Sie uns Ihr Projekt gemeinsam verwirklichen.</h2>
-    <p>Rufen Sie an, schreiben Sie per WhatsApp oder nutzen Sie das Formular – Rückmeldung erfolgt persönlich.</p>
+    <h2 id="cta-titel">Lassen Sie uns Ihr Projekt gemeinsam verwirklichen.</h2>
+    <p>Rufen Sie an, schreiben Sie per WhatsApp oder nutzen Sie das Formular. Die Rückmeldung erfolgt persönlich.</p>
     <div class="btn-row">
-      <a href="kontakt.html" class="btn btn-accent btn-lg">Projekt anfragen</a>
-      <a href="tel:+4915731464675" class="btn btn-outline-light btn-lg"><svg class="icon-phone" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Jetzt anrufen</a>
+        <a href="kontakt.html" class="btn btn-accent btn-lg">Projekt anfragen</a>
+        <a href="tel:+4915731464675" class="btn btn-outline-light btn-lg"><svg class="icon-phone" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Jetzt anrufen</a>
     </div>
   </div>
 </section>

@@ -78,3 +78,8 @@ zum jeweiligen Slot), auf die im Auftrag vorgegebenen Zielbreiten skaliert
 900 px) und als komprimiertes JPEG gespeichert (Zielgröße 25–250 KB pro
 Bild). Keine Kompositions- oder Inhaltsänderung über Zuschnitt/Skalierung/
 Kompression hinaus, kein Wasserzeichen, keine KI-Bildgenerierung.
+
+## Stand Redesign 2026-10
+Die Fotos erscheinen auf Startseite und Leistungsseiten als Beiwerk (aufgeklebter Abzug, Beschriftung „Beispielfoto“).
+Nicht mehr eingebunden, aber im Ordner behalten: `bilder/hero/hero-malerarbeiten.*` und `bilder/hero/cta-banner.*`
+(früher Hero der Startseite und Hintergrund des Abschluss-Banners). Keine KI-Bilder, keine neuen Fotos in dieser Runde.

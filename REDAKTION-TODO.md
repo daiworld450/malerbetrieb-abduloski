@@ -225,3 +225,18 @@ genannt werden.
   bleibt offen.**
 - **Schriften** liegen jetzt selbst gehostet in `fonts/` (OFL), kein Google-Aufruf mehr.
 - Bilder: WebP-Varianten neben den JPGs (`<picture>`), Original-JPGs bleiben.
+
+## 17. Redesign 2026-10 "Musterwand" (neue visuelle Welt)
+- **Neu gestaltet:** Startseite und alle Leistungsseiten, Kopf/Fuß/Navigation aller 15 Seiten. Maßgeblich ist jetzt
+  `DESIGN.md` (ersetzt `DESIGN-SYSTEM.md`), Produktwahrheit steht in `PRODUCT.md`.
+- **Bilder:** Fotos sind nur noch Beiwerk. Auf der Startseite und den Leistungsseiten erscheinen sie als
+  aufgeklebte Abzüge mit der Beschriftung „Beispielfoto“ (Stockfotos, siehe `BILDNACHWEIS.md`).
+  `bilder/hero/hero-malerarbeiten.*` und `bilder/hero/cta-banner.*` werden nicht mehr eingebunden (Dateien bleiben liegen).
+  Sobald echte Fotos da sind: Abzug austauschen, Beschriftung „Beispielfoto“ entfernen (Punkt 1, 8, 11, 12 gelten unverändert).
+- **Farbprobe (Startseite):** Die sechs Töne sind rein dekorative Farbfamilien (Warmweiß, Sandstein, Salbeigrün,
+  Taubenblau, Terrakotta, Anthrazitgrün), keine Hersteller- oder Produktfarben. Der Hinweistext sagt das ausdrücklich.
+- **Weiterhin ausgeblendet (HTML-Kommentare, Code und CSS bleiben):** Vorher/Nachher-Slider, Beispiel-Projektkarten,
+  Galerie „Bilder bei der Arbeit“, Portrait-Slots, Inhaber-Zitat.
+- **Weiterhin offen:** Gründungsjahr, Teamgröße, USt-IdNr., Inhaber-Zitat und Portrait, FormSubmit-Aktivierung (Punkt 6).
+- **Satzzeichen:** Gedankenstriche im sichtbaren Text wurden durch Punkt, Komma oder Doppelpunkt ersetzt (nur Zeichensetzung,
+  keine Aussageänderung). Impressum und Datenschutz sind unverändert.

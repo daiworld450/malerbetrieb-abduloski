@@ -1,0 +1,9 @@
+Schriften dieses Projekts (selbst gehostet, kein Abruf bei Google beim Seitenbesuch)
+
+- Big Shoulders Display und Big Shoulders Stencil Display: Copyright The Big Shoulders Project Authors
+  (Patric King, Chicago). SIL Open Font License 1.1.
+- Archivo: Copyright The Archivo Project Authors (Omnibus-Type). SIL Open Font License 1.1.
+
+Dateien: woff2, Lateinisch (Unterteilung "latin"), variable Gewichtsachse.
+Quelle: Fontsource-Pakete (big-shoulders-display, big-shoulders-stencil-display, archivo), Stand 2026-10.
+Lizenztext: https://openfontlicense.org

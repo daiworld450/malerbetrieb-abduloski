@@ -36,11 +36,13 @@ css/style.css
 js/main.js
 sitemap.xml
 robots.txt
-DESIGN-SYSTEM.md    (Komponenten-/Designsystem-Dokumentation, Welle A + B)
+DESIGN.md           (Designsystem "Musterwand", seit Redesign 2026-10)
+PRODUCT.md          (Produktwahrheit: Nutzer, Fakten, was nicht erfunden werden darf)
+DESIGN-SYSTEM.md    (Verweis auf DESIGN.md; alte Fassung steht in der Git-Historie)
 REDAKTION-TODO.md   (NICHT auf der Live-Seite verlinkt)
 ```
 
-Seit Welle B (2026-09-14): vollständiges Designsystem (siehe `DESIGN-SYSTEM.md`),
+Seit Redesign 2026-10: neue visuelle Welt "Musterwand" (siehe `DESIGN.md`). Davor, Welle B (2026-09-14): Designsystem (siehe Git-Historie von `DESIGN-SYSTEM.md`),
 alle Seiten überarbeitet, keine sichtbaren Klammer-Platzhalter mehr im
 Fließtext, Breadcrumbs auf allen Unterseiten, FAQ-Schema auf allen
 Leistungsseiten.
